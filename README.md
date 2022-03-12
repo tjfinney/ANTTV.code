@@ -32,9 +32,10 @@ contains a code representing the reading of that witness at that
 variation site. For example, if the numerals given in the above list of
 readings are used as codes, the value entered in the cell at the
 intersection of row *Theta* and column *Mark 1.1* would be *4*. Please
-note that the same codes (typically numerals) may be reused at other
+note that the same codes (typically numerals) are reused at other
 variation sites; each variation site has its own correspondence between
-codes and readings.
+codes and readings; no association is implied by the same code being
+used at two different variation sites.
 
 Analysis can begin with the data frame itself or with a *distance
 matrix* constructed by calculating distances between pairs of witnesses
