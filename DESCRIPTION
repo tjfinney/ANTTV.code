@@ -16,3 +16,6 @@ Imports:
     stringr
 URL: https://github.com/tjfinney/ANTTV
 BugReports: https://github.com/tjfinney/ANTTV/issues
+Depends: 
+    R (>= 2.10)
+LazyData: true
