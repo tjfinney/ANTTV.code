@@ -38,11 +38,6 @@ its own correspondence between codes and readings, and no association is
 implied by the same code being used at two different variation sites.
 
 Analysis can begin with the data frame itself or with a *distance
-matrix* constructed by calculating distances between pairs of witnesses
-in the data frame. The analysis methods used in this package usually
-begin with a distance matrix calculated from a data frame.
-
-Analysis can begin with the data frame itself or with a *distance
 matrix* constructed by calculating distances between witnesses in the
 data frame. The *simple matching distance* is used here, being the
 number of places where the readings of two witnesses differ divided by
