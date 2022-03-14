@@ -1,4 +1,4 @@
-#' Recursively reduce a data frame that contains missing data (NAs) so that the number of columns where any two rows can be compared (i.e. neither has NA) is at least equal to a minimum value. Reduction is achieved by eliminating rows that cause a violation of the minimum condition.
+#' Reduce a data frame that contains missing data (NAs) so that the number of columns where any two rows can be compared (i.e. neither has NA) is at least equal to a minimum value. Reduction is achieved by recursively eliminating rows that cause a violation of the minimum condition.
 #'
 #' @param df A data frame.
 #' @param min Minimum number of mutually defined places.
