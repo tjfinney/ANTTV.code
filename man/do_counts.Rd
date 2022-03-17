@@ -4,14 +4,14 @@
 \alias{do_counts}
 \title{Compute counts of comparable columns}
 \usage{
-do_counts(frame)
+do_counts(fr)
 }
 \arguments{
-\item{frame}{A data frame.}
+\item{fr}{A data frame.}
 }
 \value{
 A matrix.
 }
 \description{
-For each combination of two rows, compute how many columns of a data frame are comparable . (Given a selection of two rows, a column is comparable if neither row has \code{NA}.) Returns a square matrix giving the count for every combination of two rows.
+For each combination of two rows, compute how many columns of a data frame are comparable . (Given a selection of two rows, a column is comparable if neither row has \code{NA} for that column.) Returns a square matrix giving the count for every combination of two rows.
 }
