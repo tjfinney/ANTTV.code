@@ -2,7 +2,7 @@
 % Please edit documentation in R/do_counts.R
 \name{do_counts}
 \alias{do_counts}
-\title{Compute counts of comparable columns}
+\title{Compute pairwise defined counts}
 \usage{
 do_counts(fr)
 }
@@ -13,5 +13,5 @@ do_counts(fr)
 A matrix.
 }
 \description{
-For each combination of two rows, compute how many columns of a data frame are comparable . (Given a selection of two rows, a column is comparable if neither row has \code{NA} for that column.) Returns a square matrix giving the count for every combination of two rows.
+Compute how many columns in a data set are pairwise defined for each combination of two rows. A column is pairwise defined if its elements are defined for both rows. (That is, neither row has \code{NA}.) Returns a square matrix giving the count for every combination of two rows.
 }
