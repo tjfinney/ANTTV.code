@@ -10,8 +10,11 @@ do_counts(fr)
 \item{fr}{A data frame.}
 }
 \value{
-A matrix.
+A square matrix giving the number of pairwise defined columns for every combination of two rows.
 }
 \description{
-Compute how many columns in a data set are pairwise defined for each combination of two rows. A column is pairwise defined if its elements are defined for both rows (that is, neither row has \code{NA}). Returns a square matrix giving the count for every combination of two rows.
+Compute how many columns in a data set are pairwise defined for each combination of two rows. Given a selection of two rows, a column is pairwise defined if its elements are defined for both rows (i.e. neither row has \code{NA} for that column).
+}
+\details{
+This code incorporates suggestions by Bill Venables (see Jan 2014 archive at https://list.science.auckland.ac.nz/sympa/arc/stat-rdownunder).
 }

@@ -1,41 +1,55 @@
 #' Reduce missing data
 #'
-#' Drop rows from a data set until the number of pairwise defined columns is at least equal to a minimum acceptable number for every combination of two remaining rows. Given a selection of two rows, a column is pairwise defined if its elements are defined for both rows (i.e. neither row has `NA`).
+#' Drop rows from a data set until the number of pairwise defined columns is at least equal to a minimum acceptable number for every combination of two remaining rows. Given a selection of two rows, a column is pairwise defined if its elements are defined for both rows (i.e. neither row has NA for that column).
 #'
-#' Reduction is achieved by dropping rows that cause the number of pairwise defined columns to fail the minimum acceptable number condition. The process has two stages. In the first stage, all rows with fewer than the minimum acceptable number of defined elements are dropped as they cannot satisfy the condition when in combination with another row. The second stage is iterative and proceeds until the minimum condition is satisfied for all combinations of two remaining rows. At each step, the two rows with the least number of pairwise defined columns are identified then the least well defined of the two (i.e. the one with the most missing data) is dropped.
+#' Reduction is achieved by dropping rows that cause the number of pairwise defined columns to fail the minimum acceptable number condition. The process has two stages. In the first stage, all rows with fewer than the minimum acceptable number of defined elements are dropped as they cannot satisfy the condition when in combination with another row. The second stage is iterative. At each step, rows associated with the least number of pairwise defined counts are identified and one is dropped. (A row that has been nominated to be kept will not be dropped at this stage.) The row elimination process continues until the least number of pairwise counts reaches the minimum acceptable number.
 #'
-#' A particular row can be nominated to be kept from elimination provided that it has enough defined (i.e. non-`NA`) elements to satisfy the minimum acceptable number condition.
-#'
-#' If `report` is TRUE then the program will report which rows are being dropped.
+#' This code incorporates suggestions by Bill Venables (see Jan 2014 archive at https://list.science.auckland.ac.nz/sympa/arc/stat-rdownunder).
 #'
 #' @param fr A data frame.
-#' @param min Minimum acceptable number of pairwise defined columns.
-#' @param keep Name of a row to be kept.
-#' @param report Whether to report dropped rows.
+#' @param n Minimum acceptable number of pairwise defined columns in the reduced data frame. Values can range from 1 to the number of columns.
+#' @param keep A row to be kept from elimination provided that it has enough defined (i.e. non-NA) elements to satisfy the minimum acceptable number condition.
+#' @param report Whether to report which rows are being dropped.
 #'
-#' @return A data frame.
+#' @return A data frame where the number of pairwise defined columns is at least equal to the minimum acceptable number for every combination of two rows.
 #' @export
 #'
-do_reduction <- function(fr, min = 15, keep = NULL, report = FALSE) {
+do_reduction <- function(fr, n = 15, keep = "", report = FALSE) {
   # Initial checks
   stopifnot(
     "input is not a data frame" = is.data.frame(fr),
     "input must have more than one row" = dim(fr)[1] > 1,
-    "*min* must be greater than zero" = 0 < min,
-    "*min* exceeds number of columns" = min <= dim(fr)[2]
+    "*n* must be greater than zero" = 0 < n,
+    "*n* exceeds number of columns" = n <= dim(fr)[2]
   )
-  if (!is.null(keep)) {
+  if (keep != "") {
     stopifnot(
       "*keep* does not match any row names" = keep %in% row.names(fr),
-      "*keep* does not have *min* defined elements" = sum(!is.na(fr[keep,]) >= min)
+      "*keep* does not have *n* defined elements" = sum(!is.na(fr[keep,])) >= n
     )
   }
   # Stage 1
-  drop <- (diag(do_counts(fr)) < min)
+  drop <- (diag(do_counts(fr)) < n)
   fr1 <- fr[!drop,]
   if (report) {
-    message("Stage 1: drop rows with < ", min, " elements:")
+    message("Stage 1: drop rows that cannot satisfy minimum condition:")
     message(paste(rownames(fr)[drop], collapse=" "))
   }
-  dim(fr1)
+  # Stage 2
+  mx <- do_counts(fr1)
+  while((m <- min(mx)) < n) {
+    # List rows with least counts
+    ls <- which(mx == m, arr.ind=TRUE)[, 1]
+    # Choose worst defined row which is not to be kept
+    wd <- sort(diag(mx)[ls[names(ls) != keep]])[1]
+    i <- which(names(ls) == names(wd))[1]
+    # Drop it
+    mx <- mx[-ls[i], -ls[i]]
+  }
+  drop <- !(rownames(fr1) %in% rownames(mx))
+  if (report) {
+    message("Stage 2: drop remaining rows that violate minimum condition:")
+    message(paste(rownames(fr1)[drop], collapse=" "))
+  }
+  fr1[!drop,]
 }

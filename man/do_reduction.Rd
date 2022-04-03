@@ -4,27 +4,25 @@
 \alias{do_reduction}
 \title{Reduce missing data}
 \usage{
-do_reduction(fr, min = 15, keep = NULL, report = FALSE)
+do_reduction(fr, n = 15, keep = "", report = FALSE)
 }
 \arguments{
 \item{fr}{A data frame.}
 
-\item{min}{Minimum acceptable number of pairwise defined columns.}
+\item{n}{Minimum acceptable number of pairwise defined columns in the reduced data frame. Values can range from 1 to the number of columns.}
 
-\item{keep}{Name of a row to be kept.}
+\item{keep}{A row to be kept from elimination provided that it has enough defined (i.e. non-NA) elements to satisfy the minimum acceptable number condition.}
 
-\item{report}{Whether to report dropped rows.}
+\item{report}{Whether to report which rows are being dropped.}
 }
 \value{
-A data frame.
+A data frame where the number of pairwise defined columns is at least equal to the minimum acceptable number for every combination of two rows.
 }
 \description{
-Drop rows from a data set until the number of pairwise defined columns is at least equal to a minimum acceptable number for every combination of two remaining rows. Given a selection of two rows, a column is pairwise defined if its elements are defined for both rows (i.e. neither row has \code{NA}).
+Drop rows from a data set until the number of pairwise defined columns is at least equal to a minimum acceptable number for every combination of two remaining rows. Given a selection of two rows, a column is pairwise defined if its elements are defined for both rows (i.e. neither row has NA for that column).
 }
 \details{
-Reduction is achieved by dropping rows that cause the number of pairwise defined columns to fail the minimum acceptable number condition. The process has two stages. In the first stage, all rows with fewer than the minimum acceptable number of defined elements are dropped as they cannot satisfy the condition when in combination with another row. The second stage is iterative and proceeds until the minimum condition is satisfied for all combinations of two remaining rows. At each step, the two rows with the least number of pairwise defined columns are identified then the least well defined of the two (i.e. the one with the most missing data) is dropped.
+Reduction is achieved by dropping rows that cause the number of pairwise defined columns to fail the minimum acceptable number condition. The process has two stages. In the first stage, all rows with fewer than the minimum acceptable number of defined elements are dropped as they cannot satisfy the condition when in combination with another row. The second stage is iterative. At each step, rows associated with the least number of pairwise defined counts are identified and one is dropped. (A row that has been nominated to be kept will not be dropped at this stage.) The row elimination process continues until the least number of pairwise counts reaches the minimum acceptable number.
 
-A particular row can be nominated to be kept from elimination provided that it has enough defined (i.e. non-\code{NA}) elements to satisfy the minimum acceptable number condition.
-
-If \code{report} is TRUE then the program will report which rows are being dropped.
+This code incorporates suggestions by Bill Venables (see Jan 2014 archive at https://list.science.auckland.ac.nz/sympa/arc/stat-rdownunder).
 }
