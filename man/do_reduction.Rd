@@ -4,18 +4,27 @@
 \alias{do_reduction}
 \title{Reduce missing data}
 \usage{
-do_reduction(frame, min = 15, keep = NULL)
+do_reduction(fr, min = 15, keep = NULL, report = FALSE)
 }
 \arguments{
-\item{frame}{A data frame.}
+\item{fr}{A data frame.}
 
-\item{min}{Minimum number of comparable elements.}
+\item{min}{Minimum acceptable number of pairwise defined columns.}
 
-\item{keep}{Name of a row to be preserved.}
+\item{keep}{Name of a row to be kept.}
+
+\item{report}{Whether to report dropped rows.}
 }
 \value{
 A data frame.
 }
 \description{
-Remove rows from a data frame so that the number of columns where any two rows are comparable is at least equal to a minimum value. (Here, two rows are comparable at a column if neither has missing data (\code{NA}) there.) Reduction is achieved by recursively eliminating rows that cause a violation of the minimum condition. At each step the two rows with the least number of comparable columns are identified then the least well-defined of the two is eliminated. (The least well-defined is the one with the most missing data.) One row may be marked to be kept from elimination.
+Drop rows from a data set until the number of pairwise defined columns is at least equal to a minimum acceptable number for every combination of two remaining rows. Given a selection of two rows, a column is pairwise defined if its elements are defined for both rows (i.e. neither row has \code{NA}).
+}
+\details{
+Reduction is achieved by dropping rows that cause the number of pairwise defined columns to fail the minimum acceptable number condition. The process has two stages. In the first stage, all rows with fewer than the minimum acceptable number of defined elements are dropped as they cannot satisfy the condition when in combination with another row. The second stage is iterative and proceeds until the minimum condition is satisfied for all combinations of two remaining rows. At each step, the two rows with the least number of pairwise defined columns are identified then the least well defined of the two (i.e. the one with the most missing data) is dropped.
+
+A particular row can be nominated to be kept from elimination provided that it has enough defined (i.e. non-\code{NA}) elements to satisfy the minimum acceptable number condition.
+
+If \code{report} is TRUE then the program will report which rows are being dropped.
 }
