@@ -13,7 +13,7 @@ read_data_frame(file)
 A data frame.
 }
 \description{
-Make a data frame from a comma-separated vector (CSV) file. The file is read as a table with rows for witnesses and columns for variation sites. The first column is taken to be witness names and the first row to be variation site identifiers. Data is assumed to have class "character". (Numerals are therefore treated as characters, not numbers.)
+Make a data frame from a comma-separated vector (CSV) file. The file is read as a table with rows for witnesses and columns for variation sites. The first column is taken to be witness names and the first row to be variation site identifiers. Table elements are treated as factors. Consequently, the only meaningful result of comparing two elements in a column is whether they match.
 }
 \details{
 This is a wrapper for utils::read.csv.

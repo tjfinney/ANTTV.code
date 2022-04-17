@@ -7,7 +7,7 @@
 #' This code incorporates suggestions by Bill Venables (see Jan 2014 archive at https://list.science.auckland.ac.nz/sympa/arc/stat-rdownunder).
 #'
 #' @param fr A data frame.
-#' @param n Minimum acceptable number of pairwise defined columns in the reduced data frame. Values can range from 1 to the number of columns.
+#' @param n Minimum acceptable number of pairwise defined columns in the reduced data frame. Values can range from 1 to the number of columns. (Default = 15.)
 #' @param keep A row to be kept from elimination provided that it has enough defined (i.e. non-NA) elements to satisfy the minimum acceptable number condition.
 #' @param report Whether to report which rows are being dropped.
 #'
