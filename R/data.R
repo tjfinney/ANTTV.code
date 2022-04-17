@@ -7,5 +7,5 @@
 #'   \item{Mk.1.1}{Codes representing readings found in the apparatus entry at Mark 1.1.}
 #'   ...
 #' }
-#' @source \url{https://zenodo.org/record/4064629}
+#' @source \url{https://zenodo.org/record/6466262}
 "Mark.UBS4"
