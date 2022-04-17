@@ -2,4 +2,5 @@
 
 export(do_counts)
 export(do_reduction)
+export(read_data_frame)
 export(str_split_one)

@@ -32,7 +32,7 @@ do_reduction <- function(fr, n = 15, keep = "", report = FALSE) {
   drop <- (diag(do_counts(fr)) < n)
   fr1 <- fr[!drop,]
   if (report) {
-    message("Stage 1: drop rows that cannot satisfy minimum condition:")
+    message("Stage 1: drop rows with less than n defined elements:")
     message(paste(rownames(fr)[drop], collapse=" "))
   }
   # Stage 2
@@ -48,7 +48,7 @@ do_reduction <- function(fr, n = 15, keep = "", report = FALSE) {
   }
   drop <- !(rownames(fr1) %in% rownames(mx))
   if (report) {
-    message("Stage 2: drop remaining rows that violate minimum condition:")
+    message("Stage 2: drop remaining rows that cause the minimum condition to be violated:")
     message(paste(rownames(fr1)[drop], collapse=" "))
   }
   fr1[!drop,]
