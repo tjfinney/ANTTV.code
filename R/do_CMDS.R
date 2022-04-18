@@ -8,18 +8,18 @@
 #' @export
 #'
 do_CMDS <- function(dm) {
-  distances <- as.dist(dm)
+  distances <- stats::as.dist(dm)
   # Calculate model coords
   MDS <- stats::cmdscale(distances, k=3, eig=TRUE)
   x <- MDS$points[,1]
   y <- MDS$points[,2]
   z <- MDS$points[,3]
   # Calculate R-squared
-  MDS.dist <- dist(MDS$points, diag=TRUE, upper=TRUE)
+  MDS.dist <- stats::dist(MDS$points, diag=TRUE, upper=TRUE)
   MDS.summary <- stats::summary.lm(stats::lm(distances ~ MDS.dist))
   rsq <- MDS.summary$r.squared
   # Plot result
-  graphics.off()
+  grDevices::graphics.off()
   rgl::par3d(windowRect = c(0, 0, 600, 600))
   rgl::par3d(cex = 0.8)
   rgl::plot3d(x, y, z, xlab="axis 1", ylab="axis 2", zlab="axis 3", type='n', axes=TRUE, box=TRUE, sub=sprintf("R-squared = %0.2f", rsq))

@@ -9,10 +9,11 @@
 #'
 do_NJ <- function(dm) {
   # Perform analysis.
-  tr <- ape::nj(as.dist(dm))
+  tr <- ape::nj(stats::as.dist(dm))
   # Do plot
-  graphics.off()
-  par(bg="white")
-  par(mai=c(0.5, 0.5, 0.5, 0.5))
-  plot(tr, "u")
+  grDevices::graphics.off()
+  graphics::par(bg="white")
+  graphics::par(mai=c(0.5, 0.5, 0.5, 0.5))
+  #plot(tr, "u")
+  tr
 }

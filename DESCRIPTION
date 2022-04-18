@@ -18,7 +18,8 @@ Imports:
     stringr,
     stats,
     rgl,
-    ape
+    ape,
+    grDevices
 URL: https://github.com/tjfinney/ANTTV
 BugReports: https://github.com/tjfinney/ANTTV/issues
 Depends: 

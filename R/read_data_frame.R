@@ -6,6 +6,8 @@
 #'
 #' @param file A file name, which can be a URL.
 #'
+#' @param label A label for the data set (e.g. "Mark.UBS4) to be passed through to subsequent functions.
+#'
 #' @return A data frame.
 #' @export
 #'

@@ -10,8 +10,8 @@ do_DC(dm)
 \item{dm}{A distance matrix.}
 }
 \value{
-A divisive hierarchical clustering plot.
+An object of class "diana" representing the clustering.
 }
 \description{
-Perform divisive hierarchical clustering analysis on a distance matrix and plot the result.
+Compute the divisive hierarchical clustering of a distance matrix.
 }
