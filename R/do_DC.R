@@ -19,6 +19,8 @@ do_DC <- function(dm, plot = TRUE, write = FALSE, fn = "../DC/Mark.UBS4.png") {
     grDevices::graphics.off()
     plot(DC, which=2, main="", xlab="", cex=0.8)
   }
-  if (write) { dev.print(png, file=fn, width=1000, height=600) }
+  if (write) {
+    grDevices::dev.print(grDevices::png, file=fn, width=1000, height=600)
+  }
   DC
 }
