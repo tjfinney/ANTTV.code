@@ -15,7 +15,10 @@ Config/testthat/edition: 3
 Imports: 
     cluster,
     utils,
-    stringr
+    stringr,
+    stats,
+    rgl,
+    ape
 URL: https://github.com/tjfinney/ANTTV
 BugReports: https://github.com/tjfinney/ANTTV/issues
 Depends: 
