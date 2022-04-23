@@ -4,13 +4,17 @@
 \alias{do_NJ}
 \title{Perform neighbour-joining tree estimation}
 \usage{
-do_NJ(dm)
+do_NJ(dm, write = FALSE, fn = "../NJ/Mark.UBS4.png")
 }
 \arguments{
 \item{dm}{A distance matrix.}
+
+\item{write}{logical flag: (default = FALSE) if TRUE then a plot will be written to file fn.}
+
+\item{fn}{a connection or character string naming the file to write to.}
 }
 \value{
-A neighbour-joining tree plot.
+An object of class "phylo".
 }
 \description{
 Perform the neighbor-joining tree estimation of Saitou and Nei on a distance matrix and plot the result.

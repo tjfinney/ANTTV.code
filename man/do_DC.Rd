@@ -4,20 +4,18 @@
 \alias{do_DC}
 \title{Perform divisive clustering analysis}
 \usage{
-do_DC(dm, plot = TRUE, write = FALSE, fn = "../DC/Mark.UBS4.png")
+do_DC(dm, write = FALSE, fn = "../DC/Mark.UBS4.png")
 }
 \arguments{
 \item{dm}{A distance matrix.}
 
-\item{plot}{logical flag: (default = TRUE) if TRUE then a plot will be drawn on the current graphics device.}
-
 \item{write}{logical flag: (default = FALSE) if TRUE then a plot will be written to file fn.}
 
-\item{fn}{the file to write to.}
+\item{fn}{a connection or character string naming the file to write to.}
 }
 \value{
 An object of class "diana" representing the clustering.
 }
 \description{
-Compute a divisive hierarchical clustering of a distance matrix.
+Compute a divisive hierarchical clustering of a distance matrix and plot the result.
 }
