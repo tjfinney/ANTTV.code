@@ -29,7 +29,9 @@ devtools::install_github("tjfinney/ANTTV")
 
 ## Example
 
-To analyse a data frame or distance matrix,
+To analyse a data frame,
+
+    read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_CMDS()
 
 ``` r
 library(ANTTV)
@@ -126,8 +128,16 @@ read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_r
 #> 
 #> $GOF
 #> [1] 0.5101729 0.5816490
+```
+
+To analyse a distance matrix,
+
+    read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_CMDS()
+
+``` r
+library(ANTTV)
 ## distance matrix
-read_data_frame("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_CMDS()
+read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_CMDS()
 #> $points
 #>                    [,1]         [,2]         [,3]
 #> P74        -0.307295481  0.198925004  0.020510499
