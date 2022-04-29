@@ -19,6 +19,6 @@ Make a distance matrix from a comma-separated vector (CSV) file. The file is ass
 This is a wrapper for utils::read.csv.
 }
 \examples{
-x <- read_dist_matrix("https://zenodo.org/record/4064631/files/Acts-UBS2.15.SMD.csv")
+x <- read_dist_matrix("https://zenodo.org/record/4064630/files/Acts.UBS2.dist.csv")
 
 }

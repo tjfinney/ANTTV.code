@@ -18,7 +18,14 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ANTTV is to ...
+ANTTV is a suite of R programs to analyse data on New Testament textual variation. It uses the R pipe operator `|>` to chain together functions to produce analysis results.
+
+To get started:
+
+1. Install R on your computer
+2. [Optional] To make life easier, install RStudio on your computer
+3. Install the ANTTV package
+4. Use the programs in the package to analyse the data.
 
 ## Installation
 
@@ -31,25 +38,13 @@ devtools::install_github("tjfinney/ANTTV")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+To analyse a data frame or distance matrix,
 
 ```{r example}
 library(ANTTV)
-## basic example code
+## data frame
+read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_CMDS()
+## distance matrix
+read_data_frame("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_CMDS()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

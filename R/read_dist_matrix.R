@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' x <- read_dist_matrix("https://zenodo.org/record/4064631/files/Acts-UBS2.15.SMD.csv")
+#' x <- read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv")
 #'
 read_dist_matrix <- function(file) {
   as.matrix(utils::read.csv(file, row.names=1, check.names=FALSE))
