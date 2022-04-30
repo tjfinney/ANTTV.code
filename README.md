@@ -35,7 +35,7 @@ To analyse a data frame,
 
 ``` r
 library(ANTTV)
-## data frame
+## read data frame, do data reduction, do distance matrix, do classical scaling
 read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_CMDS()
 #> $points
 #>                   [,1]         [,2]         [,3]
@@ -136,7 +136,7 @@ To analyse a distance matrix,
 
 ``` r
 library(ANTTV)
-## distance matrix
+## ## read distance matrix, do classical scaling
 read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_CMDS()
 #> $points
 #>                    [,1]         [,2]         [,3]
