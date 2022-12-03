@@ -58,7 +58,7 @@ following steps were required to get it working:
 4.  Install `magick` package in RStudio: `install.packages("magick")`
 5.  Install ImageMagick (on Linux): `sudo apt install imagemagick`
 
-## Example
+## Examples
 
 To analyse a data frame,
 
