@@ -257,5 +257,4 @@ repository](https://zenodo.org/). (Try searching for *Finney, Tim* to
 find them.) Some data sets are data matrices (showing textual states of
 witnesses) and others are distance matrices (showing distances between
 pairs of witnesses calculated with the simple matching distance). See
-the [examples](#examples) above for command chains that are appropriate
-for data matrices or distance matrices.
+the [examples](#examples) above for appropriate command chains.
