@@ -255,6 +255,8 @@ step. E.g.
 
     read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_NJ()
 
+or
+
     read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_NJ()
 
 ## Data sets
