@@ -250,6 +250,13 @@ read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |
 #> [1] 0.3755827 0.4519601
 ```
 
+Different types of analysis results are obtained by varying the final
+step. E.g.
+
+    read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_NJ()
+
+    read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_NJ()
+
 ## Data sets
 
 There are a number of New Testament data sets at the [Zenodo
