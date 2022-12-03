@@ -23,7 +23,7 @@ ANTTV is a suite of R programs to analyse data on New Testament textual variatio
 To get started:
 
 1. Install R on your computer
-2. [Optional] To make life easier, install RStudio on your computer
+2. [Optional] To make life far easier, install RStudio on your computer
 3. Install the ANTTV package
 4. Use the programs in the package to analyse the data.
 
@@ -35,6 +35,27 @@ You can install the development version of ANTTV from [GitHub](https://github.co
 # install.packages("devtools")
 devtools::install_github("tjfinney/ANTTV")
 ```
+
+Installing the *ape* and *rgl* packages can be challenging as additional software may need to be installed on your operating system. Details will vary according to your platform (whether Linux, Mac, or Windows). Looking at the package documentation is a good place to start:
+
+* <http://ape-package.ird.fr/ape_installation.html>
+* <https://dmurdoch.github.io/rgl/>
+
+The following notes (specific to Ubuntu Linux) might help too. 
+
+### Install ape package
+
+If you hit errors like `/usr/bin/ld: cannot find -llapack: No such file or directory` then try installing `gfortran`, `blas`, and `lapack` with `sudo apt install gfortran libblas-dev liblapack-dev`.
+
+### Install software for do_CMDS()
+
+`do_CMDS()` didn't work with the default `rgl` installation. The following steps were required to get it working:
+
+1. Install OpenGL support (on Linux): `sudo apt install libgl1-mesa-dev libglu1-mesa-dev`
+2. Install dev version of `rgl` package in RStudio: `remotes::install_github("dmurdoch/rgl")`
+3. Install Magick++ (on Linux): `sudo apt install libmagick++-dev`
+4. Install `magick` package in RStudio: `install.packages("magick")`
+5. Install ImageMagick (on Linux): `sudo apt install imagemagick`
 
 ## Example
 
@@ -62,3 +83,6 @@ library(ANTTV)
 read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_CMDS()
 ```
 
+## Data sets
+
+There are a number of New Testament data sets at the [Zenodo repository](https://zenodo.org/). (Try searching for *Finney, Tim* to find them.) Some data sets are data matrices (showing textual states of witnesses) and others are distance matrices (showing distances between pairs of witnesses calculated with the simple matching distance). See the [examples](#examples) above for command chains that are appropriate for data matrices or distance matrices. 

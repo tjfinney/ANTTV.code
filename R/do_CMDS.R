@@ -33,7 +33,7 @@ do_CMDS <- function(dm, write = FALSE, fp = "../CMDS/", fn = "Mark.UBS4") {
   rgl::text3d(x, y, z, rownames(MDS$points), col=4)
   # Write plot to file
   if (write) {
-    rgl::movie3d(rgl::spin3d(rpm = 10), fps = 10, duration = 6, movie = fn, dir = fp, convert = "convert -delay 1x%d -loop 0 %s*.png %s.%s")
+    rgl::movie3d(rgl::spin3d(rpm = 10), duration = 6, movie = fn, dir = fp, webshot = FALSE, convert = "convert -delay 1x%d -loop 0 %s*.png %s.%s")
   }
   # Return result
   MDS

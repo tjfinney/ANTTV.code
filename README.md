@@ -13,7 +13,8 @@ to produce analysis results.
 To get started:
 
 1.  Install R on your computer
-2.  \[Optional\] To make life easier, install RStudio on your computer
+2.  \[Optional\] To make life far easier, install RStudio on your
+    computer
 3.  Install the ANTTV package
 4.  Use the programs in the package to analyse the data.
 
@@ -26,6 +27,36 @@ You can install the development version of ANTTV from
 # install.packages("devtools")
 devtools::install_github("tjfinney/ANTTV")
 ```
+
+Installing the *ape* and *rgl* packages can be challenging as additional
+software may need to be installed on your operating system. Details will
+vary according to your platform (whether Linux, Mac, or Windows).
+Looking at the package documentation is a good place to start:
+
+- <http://ape-package.ird.fr/ape_installation.html>
+- <https://dmurdoch.github.io/rgl/>
+
+The following notes (specific to Ubuntu Linux) might help too.
+
+### Install ape package
+
+If you hit errors like
+`/usr/bin/ld: cannot find -llapack: No such file or directory` then try
+installing `gfortran`, `blas`, and `lapack` with
+`sudo apt install gfortran libblas-dev liblapack-dev`.
+
+### Install software for do_CMDS()
+
+`do_CMDS()` didn’t work with the default `rgl` installation. The
+following steps were required to get it working:
+
+1.  Install OpenGL support (on Linux):
+    `sudo apt install libgl1-mesa-dev libglu1-mesa-dev`
+2.  Install dev version of `rgl` package in RStudio:
+    `remotes::install_github("dmurdoch/rgl")`
+3.  Install Magick++ (on Linux): `sudo apt install libmagick++-dev`
+4.  Install `magick` package in RStudio: `install.packages("magick")`
+5.  Install ImageMagick (on Linux): `sudo apt install imagemagick`
 
 ## Example
 
@@ -113,7 +144,7 @@ read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_r
 #> [21]  7.139100e-02  5.940155e-02  5.481080e-02  4.636929e-02  4.117961e-02
 #> [26]  3.685747e-02  3.137585e-02  3.024420e-02  2.800779e-02  2.367259e-02
 #> [31]  1.702126e-02  1.461860e-02  1.194273e-02  6.044219e-03  5.079421e-03
-#> [36]  2.452274e-03  1.750304e-03  3.608225e-16 -1.073112e-03 -1.940503e-03
+#> [36]  2.452274e-03  1.750304e-03  3.885781e-16 -1.073112e-03 -1.940503e-03
 #> [41] -2.592090e-03 -3.282169e-03 -8.548371e-03 -9.951507e-03 -1.247874e-02
 #> [46] -1.354019e-02 -1.551074e-02 -1.617091e-02 -2.190334e-02 -3.020265e-02
 #> [51] -3.103579e-02 -3.435256e-02 -3.699214e-02 -3.809257e-02 -4.254562e-02
@@ -204,7 +235,7 @@ read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |
 #> [21]  6.372648e-02  6.057718e-02  4.882078e-02  4.435976e-02  3.894036e-02
 #> [26]  3.361808e-02  2.771772e-02  2.437517e-02  1.879871e-02  1.489760e-02
 #> [31]  1.337167e-02  1.241881e-02  8.317663e-03  3.506529e-03  5.512796e-04
-#> [36] -2.928972e-16 -2.119653e-03 -3.624185e-03 -3.725051e-03 -6.687740e-03
+#> [36] -2.106063e-16 -2.119653e-03 -3.624185e-03 -3.725051e-03 -6.687740e-03
 #> [41] -7.813803e-03 -1.308313e-02 -1.410002e-02 -1.758045e-02 -2.800591e-02
 #> [46] -2.907349e-02 -4.310727e-02 -5.052276e-02 -6.640435e-02 -7.867609e-02
 #> [51] -1.160947e-01 -1.212386e-01 -1.495245e-01 -3.073556e-01 -8.762284e-01
@@ -218,3 +249,13 @@ read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |
 #> $GOF
 #> [1] 0.3755827 0.4519601
 ```
+
+## Data sets
+
+There are a number of New Testament data sets at the [Zenodo
+repository](https://zenodo.org/). (Try searching for *Finney, Tim* to
+find them.) Some data sets are data matrices (showing textual states of
+witnesses) and others are distance matrices (showing distances between
+pairs of witnesses calculated with the simple matching distance). See
+the [examples](#examples) above for command chains that are appropriate
+for data matrices or distance matrices.
