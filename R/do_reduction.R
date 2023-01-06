@@ -32,6 +32,7 @@ do_reduction <- function(fr, n = 15, keep = "", report = FALSE) {
   drop <- (diag(do_counts(fr)) < n)
   fr1 <- fr[!drop,]
   if (report) {
+    message(sprintf("n = %d", n))
     message("Stage 1: drop rows with less than n defined elements:")
     message(paste(rownames(fr)[drop], collapse=" "))
   }
