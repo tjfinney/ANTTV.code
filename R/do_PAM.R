@@ -15,7 +15,7 @@
 #' @return An object of class "pam" representing the clustering for the optimal value of k.
 #' @export
 #'
-do_PAM <- function(dm, write = FALSE, fn = "../PAM/Mark.UBS4.txt", ks = c(2, 3, 4, 5, 8, 15)) {
+do_PAM <- function(dm, write = FALSE, fn = "../PAM/output.txt", ks = 2:15) {
   # Do analysis
   k.max <- (dim(dm))[1] - 1
   asw <- numeric(k.max)

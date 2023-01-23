@@ -8,13 +8,13 @@
 #'
 #' @param fp a character string naming the file path to write to.
 #'
-#' @param fn a character string naming the file name to write to.
+#' @param fn a character string specifying the file name prefix (".gif" will be appended).
 #'
 #' @return A list of coordinates, eigenvalues, and other parameters as described in stats::cmdscale().
 #'
 #' @export
 #'
-do_CMDS <- function(dm, write = FALSE, fp = "../CMDS/", fn = "Mark.UBS4") {
+do_CMDS <- function(dm, write = FALSE, fp = "../CMDS/", fn = "output") {
   # Do analysis
   distances <- stats::as.dist(dm)
   MDS <- stats::cmdscale(distances, k=3, eig=TRUE)

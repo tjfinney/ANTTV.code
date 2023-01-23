@@ -4,7 +4,7 @@
 #'
 #' This is a wrapper for utils::read.csv.
 #'
-#' @param file A file name, which can be a URL.
+#' @param fn A file name, which can be a URL.
 #'
 #' @return A data frame.
 #' @export
@@ -12,6 +12,6 @@
 #' @examples
 #' x <- read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv")
 #'
-read_data_frame <- function(file) {
-  utils::read.csv(file, row.names=1, colClasses="factor")
+read_data_frame <- function(fn) {
+  utils::read.csv(fn, row.names=1, colClasses="factor")
 }
