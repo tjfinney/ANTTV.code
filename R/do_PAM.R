@@ -27,8 +27,8 @@ do_PAM <- function(dm, write = FALSE, fn = "../PAM/output.txt", ks = 2:20) {
   # Write table to file
   if (write) {
     zz <- file(fn, "w")
-    cat("k | ASW | Clusters | Poorly classified\n", file = zz)
-    cat("------|------|------------------------------------------------------------|------------\n", file = zz)
+    cat("| k | ASW | Clusters | Poorly classified |\n", file = zz)
+    cat("|:------|:------|------------------------------------------------------------|------------|\n", file = zz)
     for (k in ks) {
       PAM <- cluster::pam(dist, k)
       groups <- vector(mode = "character", length = k)
@@ -42,7 +42,7 @@ do_PAM <- function(dm, write = FALSE, fn = "../PAM/output.txt", ks = 2:20) {
       sil.widths <- sort(PAM$silinfo$widths[,3], decreasing=TRUE)
       av.sil.width <- round(PAM$silinfo$avg.width, digits=3)
       poor <- paste(names(sil.widths[sil.widths < 0]), collapse=" ")
-      cat(sprintf("%s | %.3f | %s | %s\n", k, av.sil.width, groups, poor), file = zz)
+      cat(sprintf("| %s | %.3f | %s | %s |\n", k, av.sil.width, groups, poor), file = zz)
     }
     close(zz)
   }
