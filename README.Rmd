@@ -73,15 +73,15 @@ Numerous other New Testament data sets are available from the [Zenodo repository
 
 Analysis is performed by stringing together a chain of commands using the `|>` pipe operator:
 
-```{r}
-library(ANTTV)
-## read data frame, do data reduction, do distance matrix, do classical scaling
+```
+## input data frame, do data reduction, do distance matrix, do classical scaling
 Mark.UBS4 |> do_reduction() |> do_dist() |> do_CMDS()
 ```
 
 or, to obtain the same result from the same data stored at the Zenodo repository, 
 
 ```
+## read data frame, do data reduction, do distance matrix, do classical scaling
 read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_CMDS()
 ```
 
@@ -116,6 +116,8 @@ Specifying a witness to keep will prevent it being dropped by `do_reduction()` p
 ```
 Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_NJ()
 ```
+
+or
 
 ```
 Mark.UBS4 |> do_reduction(keep="P45") |> do_dist() |> do_NJ()

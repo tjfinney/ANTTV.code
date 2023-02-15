@@ -133,7 +133,7 @@ reliability of the analysis results.
 
 ## Saving results
 
-Analysis results by specifying a file name and setting the *write* flag
+Results are saved by specifying a file name and setting the *write* flag
 to `TRUE`:
 
     Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="../PAM/Mark.UBS4.txt", write=TRUE)
