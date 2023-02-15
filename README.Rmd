@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-ANTTV is a suite of R programs to analyse data on New Testament textual variation. It uses the R pipe operator `|>` to chain together functions to produce analysis results.
+ANTTV is a package of *R* programs to analyse data on New Testament textual variation. [How to discover textual groups](https://www.digitalstudies.org/article/id/7324/) provides an introduction to the techniques involved.
 
 To get started:
 
@@ -57,44 +57,84 @@ If you hit errors like `/usr/bin/ld: cannot find -llapack: No such file or direc
 4. Install `magick` package in RStudio: `install.packages("magick")`
 5. Install ImageMagick (on Linux): `sudo apt install imagemagick`
 
-## Examples
+## Data sets
 
-To analyse a data frame,
+Built-in data sets include:
 
-```
-read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_CMDS()
-```
+Mark.UBS4
+: A data matrix comprised of 267 rows of observations (i.e. witnesses listed in the apparatus of Mark's Gospel in the 4th ed. of the UBS *Greek New Testament*) and 142 variables (i.e. variation sites listed in the same apparatus).
+
+Acts.UBS2.dist
+: A distance matrix constructed from tables of percentage agreement that were compiled from the apparatus of the second edition of the UBS *Greek New Testament* by Maurice A. Robinson. 
+
+Numerous other New Testament data sets are available from the [Zenodo repository](https://zenodo.org/). (Try searching for *Finney, Tim* to find them.) Some are data matrices (showing textual states of witnesses) and others are distance matrices (showing distances between pairs of witnesses calculated with the simple matching distance).
+
+## Command chains
+
+Analysis is performed by stringing together a chain of commands using the `|>` pipe operator:
 
 ```{r}
 library(ANTTV)
 ## read data frame, do data reduction, do distance matrix, do classical scaling
+Mark.UBS4 |> do_reduction() |> do_dist() |> do_CMDS()
+```
+
+or, to obtain the same result from the same data stored at the Zenodo repository, 
+
+```
 read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_CMDS()
 ```
 
 To analyse a distance matrix,
 
 ```
-read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_CMDS()
+Acts.UBS2.dist |> do_CMDS()
 ```
 
-```{r}
-library(ANTTV)
-## ## read distance matrix, do classical scaling
+or, using the same distance matrix from the repository,
+
+```
 read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_CMDS()
 ```
 
 Different types of analysis results are obtained by varying the final step. E.g.
 
 ```
-read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_NJ()
+Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
 ```
 
 or
 
 ```
-read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_NJ()
+Acts.UBS2.dist |> do_NJ()
 ```
 
-## Data sets
+## Keeping a particular witness
 
-There are a number of New Testament data sets at the [Zenodo repository](https://zenodo.org/). (Try searching for *Finney, Tim* to find them.) Some data sets are data matrices (showing textual states of witnesses) and others are distance matrices (showing distances between pairs of witnesses calculated with the simple matching distance). See the [examples](#examples) above for appropriate command chains. 
+Specifying a witness to keep will prevent it being dropped by `do_reduction()` provided that the states of the specified witness are known at a sufficient number of variation sites:
+
+```
+Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_NJ()
+```
+
+```
+Mark.UBS4 |> do_reduction(keep="P45") |> do_dist() |> do_NJ()
+```
+
+The minimum number of variation sites required to calculate a distance can be varied from the default value of 15:
+
+```
+Mark.UBS4 |> do_reduction(n=6, keep="P88") |> do_dist() |> do_NJ()
+```
+
+Please be aware that reducing the minimum number will reduce the reliability of the analysis results.
+
+## Saving results
+
+Analysis results by specifying a file name and setting the *write* flag to `TRUE`:
+
+```
+Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="../PAM/Mark.UBS4.txt", write=TRUE)
+```
+
+(*ASW* is the *average silhouette width*, also known as the *mean silhouette width*, *MSW*.)

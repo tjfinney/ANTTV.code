@@ -4,12 +4,7 @@
 \alias{do_PAM}
 \title{Do PAM (partitioning around medoids) analysis.}
 \usage{
-do_PAM(
-  dm,
-  write = FALSE,
-  fn = "../PAM/Mark.UBS4.txt",
-  ks = c(2, 3, 4, 5, 8, 15)
-)
+do_PAM(dm, write = FALSE, fn = "../PAM/output.txt", ks = 2:20)
 }
 \arguments{
 \item{dm}{A distance matrix.}

@@ -4,16 +4,16 @@
 \alias{read_dist_matrix}
 \title{Read a distance matrix}
 \usage{
-read_dist_matrix(file)
+read_dist_matrix(fn)
 }
 \arguments{
-\item{file}{A file name, which can be a URL.}
+\item{fn}{A file name, which can be a URL.}
 }
 \value{
 A square matrix.
 }
 \description{
-Make a distance matrix from a comma-separated vector (CSV) file. The file is assumed to be a square table with rows and columns for the same set of witnesses in the same order. The first column and row is taken to be witness names. Table elements are treated as numeric. (Each element of the diagonal should be zero.)
+Read a distance matrix from a comma-separated vector (CSV) file. The file is assumed to be a square table with rows and columns for the same set of witnesses in the same order. The first column and row is taken to be witness names. Table elements are treated as numeric. (Each element of the diagonal should be zero.)
 }
 \details{
 This is a wrapper for utils::read.csv.

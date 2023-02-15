@@ -4,10 +4,10 @@
 \alias{read_data_frame}
 \title{Read a data frame}
 \usage{
-read_data_frame(file)
+read_data_frame(fn)
 }
 \arguments{
-\item{file}{A file name, which can be a URL.}
+\item{fn}{A file name, which can be a URL.}
 }
 \value{
 A data frame.

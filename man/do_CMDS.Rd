@@ -4,7 +4,7 @@
 \alias{do_CMDS}
 \title{Perform classical multidimensional scaling}
 \usage{
-do_CMDS(dm, write = FALSE, fp = "../CMDS/", fn = "Mark.UBS4")
+do_CMDS(dm, write = FALSE, fp = "../CMDS/", fn = "output")
 }
 \arguments{
 \item{dm}{A distance matrix.}
@@ -13,7 +13,7 @@ do_CMDS(dm, write = FALSE, fp = "../CMDS/", fn = "Mark.UBS4")
 
 \item{fp}{a character string naming the file path to write to.}
 
-\item{fn}{a character string naming the file name to write to.}
+\item{fn}{a character string specifying the file name prefix (".gif" will be appended).}
 }
 \value{
 A list of coordinates, eigenvalues, and other parameters as described in stats::cmdscale().

@@ -4,7 +4,7 @@
 \alias{do_NJ}
 \title{Perform neighbour-joining tree estimation}
 \usage{
-do_NJ(dm, write = FALSE, fn = "../NJ/Mark.UBS4.png")
+do_NJ(dm, write = FALSE, fn = "../NJ/output.png")
 }
 \arguments{
 \item{dm}{A distance matrix.}
