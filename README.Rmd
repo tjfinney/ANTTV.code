@@ -133,10 +133,10 @@ Please be aware that reducing the minimum number will reduce the reliability of 
 
 ## Saving results
 
-Analysis results by specifying a file name and setting the *write* flag to `TRUE`:
+Results are saved by specifying a file name and setting the *write* flag to `TRUE`:
 
 ```
 Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="../PAM/Mark.UBS4.txt", write=TRUE)
 ```
 
-(*ASW* is the *average silhouette width*, also known as the *mean silhouette width*, *MSW*.)
+(*ASW* is the *average silhouette width*, also known as the *mean silhouette width*, *MSW*. Dips in the *ASW* indicate better groupings.)
