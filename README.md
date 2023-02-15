@@ -139,4 +139,5 @@ to `TRUE`:
     Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="../PAM/Mark.UBS4.txt", write=TRUE)
 
 (*ASW* is the *average silhouette width*, also known as the *mean
-silhouette width*, *MSW*. Dips in the *ASW* indicate better groupings.)
+silhouette width*, *MSW*. Peaks in the *ASW* versus number of groups
+indicate better groupings.)
