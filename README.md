@@ -8,7 +8,7 @@
 
 ANTTV is a package of *R* programs for analysing data on New Testament
 textual variation. [How to discover textual
-groups](https://www.digitalstudies.org/article/id/7324/) provides an
+groups](https://www.tfinney.net/Groups/index.xhtml) provides an
 introduction to the techniques involved.
 
 To get started:
