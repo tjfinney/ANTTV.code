@@ -80,9 +80,9 @@ find them.) Some are data matrices (showing textual states of witnesses)
 and others are distance matrices (showing distances between pairs of
 witnesses calculated with the simple matching distance).
 
-## Command chains
+## Function chains
 
-Analysis is performed by stringing together a chain of commands using
+Analysis is performed by stringing together a chain of functions using
 the `|>` pipe operator:
 
     ## input data frame, do data reduction, do distance matrix, do classical scaling
@@ -105,11 +105,15 @@ or, using the same distance matrix from the repository,
 Different types of analysis results are obtained by varying the final
 step. E.g.
 
+    Mark.UBS4 |> do_reduction() |> do_dist() |> do_DC()
+
+or
+
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
 
 or
 
-    Acts.UBS2.dist |> do_NJ()
+    Mark.UBS4 |> do_reduction() |> do_dist() |> do_PAM()
 
 ## Keeping a particular witness
 
@@ -128,16 +132,22 @@ can be varied from the default value of 15:
 
     Mark.UBS4 |> do_reduction(n=6, keep="P88") |> do_dist() |> do_NJ()
 
-Please be aware that reducing the minimum number will reduce the
+Please be aware that reducing the minimum number will also reduce the
 reliability of the analysis results.
 
 ## Saving results
 
-Results are saved by specifying a file name and setting the *write* flag
-to `TRUE`:
+Results of an analysis function (i.e. `do_CMDS()`, `do_DC()`, `do_NJ()`,
+`do_PAM()`) can be saved by setting the *write* flag to `TRUE` and
+specifying an output file:
 
     Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="../PAM/Mark.UBS4.txt", write=TRUE)
 
 (*ASW* is the *average silhouette width*, also known as the *mean
 silhouette width*, *MSW*. Peaks in the *ASW* versus number of groups
 indicate better groupings.)
+
+A distance matrix can be saved by concluding the function chain with
+`write.csv()` and specifying an output file:
+
+    Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> write.csv("../Dist/Mark.UBS4.Origin.csv")
