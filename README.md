@@ -6,7 +6,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-ANTTV is a package of *R* programs to analyse data on New Testament
+ANTTV is a package of *R* programs for analysing data on New Testament
 textual variation. [How to discover textual
 groups](https://www.digitalstudies.org/article/id/7324/) provides an
 introduction to the techniques involved.
@@ -141,7 +141,7 @@ Results of an analysis function (i.e. `do_CMDS()`, `do_DC()`, `do_NJ()`,
 `do_PAM()`) can be saved by setting the *write* flag to `TRUE` and
 specifying an output file:
 
-    Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="../PAM/Mark.UBS4.txt", write=TRUE)
+    Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="../PAM/Mark.UBS4.Origin.txt", write=TRUE)
 
 (*ASW* is the *average silhouette width*, also known as the *mean
 silhouette width*, *MSW*. Peaks in the *ASW* versus number of groups
