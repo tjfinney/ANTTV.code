@@ -13,7 +13,7 @@ introduction to the techniques involved.
 
 To get started:
 
-1.  Install R on your computer
+1.  Install *R* on your computer
 2.  \[Optional\] To make life far easier, install RStudio on your
     computer
 3.  Install the ANTTV package
@@ -132,7 +132,7 @@ can be varied from the default value of 15:
 
     Mark.UBS4 |> do_reduction(n=6, keep="P88") |> do_dist() |> do_NJ()
 
-Please be aware that reducing the minimum number will also reduce the
+Please be aware that reducing the minimum number also reduces the
 reliability of the analysis results.
 
 ## Saving results

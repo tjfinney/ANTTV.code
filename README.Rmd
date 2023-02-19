@@ -22,7 +22,7 @@ ANTTV is a package of *R* programs for analysing data on New Testament textual v
 
 To get started:
 
-1. Install R on your computer
+1. Install *R* on your computer
 2. [Optional] To make life far easier, install RStudio on your computer
 3. Install the ANTTV package
 4. Use the programs in the package to analyse the data.
@@ -135,7 +135,7 @@ The minimum number of variation sites required to calculate a distance can be va
 Mark.UBS4 |> do_reduction(n=6, keep="P88") |> do_dist() |> do_NJ()
 ```
 
-Please be aware that reducing the minimum number will also reduce the reliability of the analysis results.
+Please be aware that reducing the minimum number also reduces the reliability of the analysis results.
 
 ## Saving results
 
