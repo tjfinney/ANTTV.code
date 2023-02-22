@@ -74,39 +74,38 @@ Numerous other New Testament data sets are available from the [Zenodo repository
 Analysis is performed by stringing together a chain of functions using the `|>` pipe operator:
 
 ```
-## input data frame, do data reduction, do distance matrix, do classical scaling
-Mark.UBS4 |> do_reduction() |> do_dist() |> do_CMDS()
+## input data frame, do data reduction, do distance matrix, do neighbour-joining analysis
+Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
 ```
 
 or, to obtain the same result from the same data stored at the Zenodo repository, 
 
 ```
-## read data frame, do data reduction, do distance matrix, do classical scaling
-read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_CMDS()
+read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_NJ()
 ```
 
 To analyse a distance matrix,
 
 ```
-Acts.UBS2.dist |> do_CMDS()
+Acts.UBS2.dist |> do_NJ()
 ```
 
 or, using the same distance matrix from the repository,
 
 ```
-read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_CMDS()
+read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_NJ()
 ```
 
 Different types of analysis results are obtained by varying the final step. E.g.
 
 ```
-Mark.UBS4 |> do_reduction() |> do_dist() |> do_DC()
+Mark.UBS4 |> do_reduction() |> do_dist() |> do_CMDS()
 ```
 
 or
 
 ```
-Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
+Mark.UBS4 |> do_reduction() |> do_dist() |> do_DC()
 ```
 
 or
@@ -139,16 +138,16 @@ Please be aware that reducing the minimum number also reduces the reliability of
 
 ## Saving results
 
-Results of an analysis function (i.e. `do_CMDS()`, `do_DC()`, `do_NJ()`, `do_PAM()`) can be saved by setting the *write* flag to `TRUE` and specifying an output file:
+Analysis results from `do_CMDS()`, `do_DC()`, `do_NJ()`, or `do_PAM()` can be saved by setting the *write* flag to `TRUE` and specifying an output file:
 
 ```
 Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="../PAM/Mark.UBS4.Origin.txt", write=TRUE)
 ```
 
-(*ASW* is the *average silhouette width*, also known as the *mean silhouette width*, *MSW*. Peaks in the *ASW* versus number of groups indicate better groupings.)
+(In PAM analysis, *ASW* is the *average silhouette width*, also known as the *mean silhouette width*, *MSW*. Peaks in *ASW* versus number of groups indicate better groupings.)
 
 A distance matrix can be saved by concluding the function chain with `write.csv()` and specifying an output file:
 
 ```
-Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> write.csv("../Dist/Mark.UBS4.Origin.csv")
+Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> write.csv("../Dist/Mark.UBS4.Origin.dist.csv")
 ```
