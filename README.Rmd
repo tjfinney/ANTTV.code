@@ -36,7 +36,7 @@ install.packages("devtools")
 devtools::install_github("tjfinney/ANTTV")
 ```
 
-Installing the *ape* and *rgl* packages can be challenging as additional software may need to be installed on your operating system. Details will vary according to your platform (whether Linux, Mac, or Windows). Looking at the package documentation is a good place to start:
+Installing the required *ape* and *rgl* packages can be challenging as additional software may need to be installed on your operating system. Details will vary according to your platform (whether Linux, Mac, or Windows). Looking at the package documentation is a good place to start:
 
 * <http://ape-package.ird.fr/ape_installation.html>
 * <https://dmurdoch.github.io/rgl/>
