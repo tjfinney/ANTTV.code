@@ -51,9 +51,9 @@ known, as indicated by the symbol `NA` in the data matrix. The SMD
 ranges from a minimum of zero to a maximum of one: 0 represents perfect
 agreement (all compared textual states are the same) and 1 represents
 perfect disagreement (all compared textual states differ). The distance
-matrix is square, with a column and row for each witness. The diagonal
-is always comprised of zeroes because each witness is a distance of zero
-from itself.
+matrix is square, with a column and row for each witness. If rows and
+columns have the same ordering then the diagonal is comprised entirely
+of zeroes because each witness is a distance of zero from itself.
 
 ## Data sets
 
