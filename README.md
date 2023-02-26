@@ -164,8 +164,8 @@ can be varied from the default value of 15:
 Please be aware that reducing the minimum number also reduces the
 reliability of the analysis results.
 
-The number of variation sites at which the state of each witness in a
-data matrix is known can be obtained as follows:
+The following command provides the numbers of variation sites at which
+the states of witnesses in a data matrix are known:
 
     rowSums(!is.na(read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv")))
 
