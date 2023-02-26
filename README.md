@@ -21,8 +21,9 @@ To get started:
 
 ## Installation
 
-You can install the development version of ANTTV from
-[GitHub](https://github.com/) with:
+Once *R* is installed, you can install the development version of ANTTV
+from [GitHub](https://github.com/) by entering the following commands at
+the *R* prompt:
 
 ``` r
 install.packages("devtools")
