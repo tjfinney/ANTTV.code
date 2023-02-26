@@ -42,10 +42,10 @@ of a witness is not known at a particular site then the symbol `NA` is
 entered to indicate that this datum is *not available*.
 
 A distance matrix records the *simple matching distance* (SMD) between
-each possible pairing of witnesses in the data matrix. Given two
-witnesses whose textual states are known at a series of variation sites,
-the SMD is the number of sites at which their states differ divided by
-the number of variation sites compared. A pairing of witnesses is not
+each possible pairing of witnesses in a data matrix. Given two witnesses
+whose textual states are known at a series of variation sites, the SMD
+is the number of sites at which their states differ divided by the
+number of variation sites compared. A pairing of witnesses is not
 compared at sites where the textual state of either witness is not
 known, as indicated by the symbol `NA` in the data matrix. The SMD
 ranges from a minimum of zero to a maximum of one: 0 represents perfect
