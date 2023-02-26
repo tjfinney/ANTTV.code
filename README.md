@@ -29,36 +29,6 @@ install.packages("devtools")
 devtools::install_github("tjfinney/ANTTV")
 ```
 
-Installing the required *ape* and *rgl* packages can be challenging as
-additional software may need to be installed on your operating system.
-Details will vary according to your platform (whether Linux, Mac, or
-Windows). Looking at the package documentation is a good place to start:
-
-- <http://ape-package.ird.fr/ape_installation.html>
-- <https://dmurdoch.github.io/rgl/>
-
-The following notes (specific to Ubuntu Linux) might help too.
-
-### Install ape package
-
-If you hit errors like
-`/usr/bin/ld: cannot find -llapack: No such file or directory` then try
-installing `gfortran`, `blas`, and `lapack` with
-`sudo apt install gfortran libblas-dev liblapack-dev`.
-
-### Install software for do_CMDS()
-
-`do_CMDS()` didn’t work with the default `rgl` installation. The
-following steps were required to get it working:
-
-1.  Install OpenGL support (on Linux):
-    `sudo apt install libgl1-mesa-dev libglu1-mesa-dev`
-2.  Install dev version of `rgl` package in RStudio:
-    `remotes::install_github("dmurdoch/rgl")`
-3.  Install Magick++ (on Linux): `sudo apt install libmagick++-dev`
-4.  Install `magick` package in RStudio: `install.packages("magick")`
-5.  Install ImageMagick (on Linux): `sudo apt install imagemagick`
-
 ## Nomenclature
 
 A data matrix specifies the textual state of each witness
@@ -194,6 +164,11 @@ can be varied from the default value of 15:
 Please be aware that reducing the minimum number also reduces the
 reliability of the analysis results.
 
+The number of variation sites at which the state of each witness in a
+data matrix is known can be obtained as follows:
+
+    rowSums(!is.na(read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv")))
+
 ## Saving results
 
 Analysis results from `do_CMDS()`, `do_DC()`, `do_NJ()`, or `do_PAM()`
@@ -210,3 +185,35 @@ A distance matrix can be saved by concluding the function chain with
 `write.csv()` and specifying an output file:
 
     Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> write.csv("../Dist/Mark.UBS4.Origin.dist.csv")
+
+## Troubleshooting
+
+Installing the required *ape* and *rgl* packages can be challenging as
+additional software may need to be installed on your operating system.
+Details will vary according to your platform (whether Linux, Mac, or
+Windows). Looking at the package documentation is a good place to start:
+
+- <http://ape-package.ird.fr/ape_installation.html>
+- <https://dmurdoch.github.io/rgl/>
+
+The following notes (specific to Ubuntu Linux) might help too.
+
+### Install ape package
+
+If you hit errors like
+`/usr/bin/ld: cannot find -llapack: No such file or directory` then try
+installing `gfortran`, `blas`, and `lapack` with
+`sudo apt install gfortran libblas-dev liblapack-dev`.
+
+### Install software for do_CMDS()
+
+`do_CMDS()` didn’t work with the default `rgl` installation. The
+following steps were required to get it working:
+
+1.  Install OpenGL support (on Linux):
+    `sudo apt install libgl1-mesa-dev libglu1-mesa-dev`
+2.  Install dev version of `rgl` package in RStudio:
+    `remotes::install_github("dmurdoch/rgl")`
+3.  Install Magick++ (on Linux): `sudo apt install libmagick++-dev`
+4.  Install `magick` package in RStudio: `install.packages("magick")`
+5.  Install ImageMagick (on Linux): `sudo apt install imagemagick`
