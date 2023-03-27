@@ -21,6 +21,6 @@ The output is the distance matrix obtained by taking the 100 complement of the p
 This uses utils::read.csv to read the input CSV file.
 }
 \examples{
-convert_agree_to_dist("../Raw/Acts-Hyytiäinen-CBGM.csv")
+# convert_agree_to_dist("../Raw/Acts-Hyytiäinen-CBGM.csv")
 
 }

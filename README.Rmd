@@ -57,13 +57,16 @@ Numerous other New Testament data sets are available from the [Zenodo repository
 ## Functions
 
 `read_data_frame()`
-: Makes a data frame from a comma-separated vector (CSV) file.
+: Make a data frame from a comma-separated vector (CSV) file.
 
 `read_dist_matrix()`
-: Reads a distance matrix from a comma-separated vector (CSV) file.
+: Read a distance matrix from a comma-separated vector (CSV) file.
 
 `do_reduction()`
-: Drops witnesses from a data matrix until the number of variation sites that can be compared for each possible pairing of witnesses reaches a minimum tolerable number. This function is used to prevent accidental agreements skewing analysis results. The default value of the minimum tolerable number is fifteen. Using smaller values increases the statistical uncertainties associated with calculated distances. (The chance of the calculated distance being a poor indication of the actual value increases as the number of variation sites compared decreases.) 
+: Drop witnesses from a data matrix until the number of variation sites that can be compared reaches a minimum tolerable number for each possible pairing of witnesses. This function is used to prevent accidental agreements skewing analysis results. The default value of the minimum tolerable number is fifteen. Using smaller values increases the statistical uncertainties associated with calculated distances. (The chance of the calculated distance being a poor indication of the actual value increases as the number of variation sites compared decreases.)
+
+`do_dist()`
+: Calculate the distance between each possible pairing of witnesses in a data matrix.
 
 `do_CMDS()`
 : Perform classical multi-dimensional scaling.
@@ -79,28 +82,26 @@ Numerous other New Testament data sets are available from the [Zenodo repository
 
 ## Function chains
 
-Analysis is performed by stringing together a chain of functions using the `|>` pipe operator:
+Analysis is performed by stringing together a chain of functions using the pipe operator (`|>`) to make the output of one step be the input of the next step:
 
 ```
 ## input data frame, do data reduction, do distance matrix, do neighbour-joining analysis
 Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
 ```
 
-or, to obtain the same result from the same data stored at the Zenodo repository, 
+To obtain the same result from the same data stored at the Zenodo repository: 
 
 ```
 read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_NJ()
 ```
 
-`do_dist()` calculates the distance between each possible pairing of witnesses in the data matrix. pair of The uncertainty in the distance between two witnesses bywitness survives at only a few variation sites then the uncertainty`do_reduction()` 
-
-To analyse a distance matrix,
+To analyse a distance matrix:
 
 ```
 Acts.UBS2.dist |> do_NJ()
 ```
 
-or, using the same distance matrix from the repository,
+To analyse the same distance matrix from the repository:
 
 ```
 read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_NJ()
@@ -118,6 +119,11 @@ or
 Mark.UBS4 |> do_reduction() |> do_dist() |> do_DC()
 ```
 
+or
+
+```
+Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
+```
 or
 
 ```
