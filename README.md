@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ANTTV
+# ANTTV code
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-ANTTV is a package of *R* programs for analysing data on New Testament
-textual variation. [How to discover textual
+*ANTTV code* is a package of *R* programs for analysing data on New
+Testament textual variation. [How to discover textual
 groups](https://www.tfinney.net/Groups/index.xhtml) provides an
 introduction to the techniques involved.
 
@@ -16,7 +16,7 @@ To get started:
 1.  Install *R* on your computer
 2.  \[Optional\] To make life far easier, install RStudio on your
     computer
-3.  Install the ANTTV package
+3.  Install the ANTTV-code package
 4.  Use the programs in the package to analyse the data.
 
 ## Installation
@@ -27,7 +27,7 @@ the *R* prompt:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("tjfinney/ANTTV")
+devtools::install_github("tjfinney/ANTTV-code")
 ```
 
 ## Nomenclature
