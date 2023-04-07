@@ -76,10 +76,6 @@ repositories:
 - [Data matrices](https://zenodo.org/record/4064629)
 - [Distance matrices](https://zenodo.org/record/4064631)
 
-The data matrices record textual states of witnesses while the distance
-matrices record distances between pairs of witnesses calculated with the
-simple matching distance.
-
 ## Functions
 
 `read_data_frame()`  
