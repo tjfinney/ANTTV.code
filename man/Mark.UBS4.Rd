@@ -6,10 +6,6 @@
 \title{Gospel of Mark textual variation data extracted from UBS4 (\emph{Greek New Testament}, 4th rev. ed., Stuttgart: United Bible Societies, 1993).}
 \format{
 A data frame with 267 rows and 142 columns:
-\describe{
-\item{Mk.1.1}{Codes representing readings found in the apparatus entry at Mark 1.1.}
-...
-}
 }
 \source{
 \url{https://zenodo.org/record/6466262}

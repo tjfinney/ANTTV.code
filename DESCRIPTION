@@ -1,10 +1,10 @@
-Package: ANTTV
-Title: Analysis of New Testament Textual Variation
-Version: 2022.3.12.1
+Package: ANTTV.code
+Title: Analysis of New Testament Textual Variation (Code)
+Version: 2023.4.7.1
 Authors@R: 
     person("Tim", "Finney", , "tjf@tfinney.net", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8019-3102"))
-Description: This package provides various helps for those who would analyse data that represents textual variation in the New Testament.
+Description: Code for analysis of New Testament textual variation.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -15,13 +15,12 @@ Config/testthat/edition: 3
 Imports: 
     cluster,
     utils,
-    stringr,
     stats,
     rgl,
     ape,
     grDevices
-URL: https://github.com/tjfinney/ANTTV
-BugReports: https://github.com/tjfinney/ANTTV/issues
+URL: https://github.com/tjfinney/ANTTV-code
+BugReports: https://github.com/tjfinney/ANTTV-code/issues
 Depends: 
     R (>= 2.10)
 LazyData: true
