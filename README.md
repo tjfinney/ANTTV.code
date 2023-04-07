@@ -70,11 +70,15 @@ A distance matrix constructed from tables of percentage agreement that
 were compiled from the apparatus of the second edition of the UBS *Greek
 New Testament* by Maurice A. Robinson.
 
-Numerous other New Testament data sets are available from the [Zenodo
-repository](https://zenodo.org/). (Try searching for *Finney, Tim* to
-find them.) Some are data matrices (showing textual states of witnesses)
-and others are distance matrices (showing distances between pairs of
-witnesses calculated with the simple matching distance).
+Numerous other New Testament data sets are available from these Zenodo
+repositories:
+
+- [Data matrices](https://zenodo.org/record/4064629)
+- [Distance matrices](https://zenodo.org/record/4064631)
+
+The data matrices record textual states of witnesses while the distance
+matrices record distances between pairs of witnesses calculated with the
+simple matching distance.
 
 ## Functions
 
