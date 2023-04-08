@@ -41,7 +41,7 @@ following commands at the *R* prompt:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("tjfinney/ANTTV-code")
+devtools::install_github("tjfinney/ANTTV.code")
 ```
 
 ## Nomenclature
@@ -49,10 +49,10 @@ devtools::install_github("tjfinney/ANTTV-code")
 A data matrix specifies the textual state of each witness
 (e.g. manuscript, lectionary, version, Church Father) at a series of
 variation sites (i.e. places where the texts differ). Each data matrix
-has as many rows as witnesses and as many columns as variation sites.
-Cells of the matrix contain symbols (typically numerals) that represent
-the textual states of the witnesses at the variation sites. If the state
-of a witness is not known at a particular site then the symbol `NA` is
+has a row for each witnesses and a column for each variation site. Cells
+of the matrix contain symbols (typically numerals) that represent the
+textual states of the witnesses at the variation sites. If the state of
+a witness is not known at a particular site then the symbol `NA` is
 entered to indicate that this datum is *not available*.
 
 A distance matrix records the *simple matching distance* (SMD) between
@@ -61,13 +61,13 @@ whose textual states are known at a series of variation sites, the SMD
 is the number of sites at which their states differ divided by the
 number of variation sites compared. A pairing of witnesses is not
 compared at sites where the textual state of either witness is not
-known, as indicated by the symbol `NA` in the data matrix. The SMD
-ranges from a minimum of zero to a maximum of one: 0 represents perfect
-agreement (all compared textual states are the same) and 1 represents
-perfect disagreement (all compared textual states differ). The distance
-matrix is square, with a column and row for each witness. If rows and
-columns have the same ordering then the diagonal is comprised entirely
-of zeroes because each witness is a distance of zero from itself.
+known, as indicated by the symbol `NA`. The SMD ranges from a minimum of
+zero to a maximum of one: 0 represents perfect agreement (all compared
+textual states are the same) and 1 represents perfect disagreement (all
+compared textual states differ). The distance matrix is square, with a
+column and row for each witness. If rows and columns have the same
+ordering then the diagonal is comprised entirely of zeroes because each
+witness is a distance of zero from itself.
 
 ## Data sets
 
@@ -151,15 +151,9 @@ step. E.g.
 
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_CMDS()
 
-or
-
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_DC()
 
-or
-
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
-
-or
 
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_PAM()
 
@@ -194,7 +188,7 @@ Analysis results from `do_CMDS()`, `do_DC()`, `do_NJ()`, or `do_PAM()`
 can be saved by setting the *write* flag to `TRUE` and specifying an
 output file:
 
-    Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="../PAM/Mark.UBS4.Origin.txt", write=TRUE)
+    Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="output/PAM/Mark.UBS4.Origin.txt", write=TRUE)
 
 (In PAM analysis, *ASW* is the *average silhouette width*, also known as
 the *mean silhouette width*, *MSW*. Peaks in *ASW* versus number of
@@ -203,7 +197,7 @@ groups indicate better groupings.)
 A distance matrix can be saved by concluding the function chain with
 `write.csv()` and specifying an output file:
 
-    Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> write.csv("../Dist/Mark.UBS4.Origin.dist.csv")
+    Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> write.csv("dist/Mark.UBS4.Origin.dist.csv")
 
 ## Troubleshooting
 
