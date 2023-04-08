@@ -1,4 +1,4 @@
 library(testthat)
-library(ANTTV)
+library(ANTTV.code)
 
 test_check("ANTTV")
