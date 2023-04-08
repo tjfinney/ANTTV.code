@@ -1,10 +1,14 @@
 #' Perform bootstrap test of a neighbour-joining tree estimate
 #'
-#' Estimate branch probabilities for an NJ tree estimate and plot the result.
+#' Estimate bipartition support values for an NJ tree estimate.
 #'
 #' @param fr A data frame.
 #'
-#' @return A plot.
+#' @param write logical flag: (default = FALSE) if TRUE then a plot will be written to file fn.
+#'
+#' @param fn a connection or character string naming the file to write to.
+#'
+#' @return An object of class "phylo".
 #' @export
 #'
 do_bootstrap_NJ <- function(fr, write = FALSE, fn="output/NJ/bootstrap.png") {

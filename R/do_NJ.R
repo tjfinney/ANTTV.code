@@ -11,7 +11,7 @@
 #' @return An object of class "phylo".
 #' @export
 #'
-do_NJ <- function(dm, write = FALSE, fn = "../NJ/output.png") {
+do_NJ <- function(dm, write = FALSE, fn = "output/NJ/output.png") {
   # Perform analysis
   tr <- ape::nj(stats::as.dist(dm))
   # Do plot
