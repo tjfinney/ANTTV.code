@@ -1,6 +1,6 @@
-#' Perform bootstrap test of a neighbour-joining tree estimate
+#' Perform bootstrap test of a neighbour-joining tree
 #'
-#' Estimate bipartition support values for an NJ tree estimate.
+#' Estimate bipartition support values for an NJ tree.
 #'
 #' @param fr A data frame.
 #'
