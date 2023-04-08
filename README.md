@@ -23,6 +23,8 @@ Data relating to New Testament textual variation.
 groups](https://www.digitalstudies.org/article/id/7324/) provides an
 introduction to the analysis techniques.
 
+…
+
 ## Getting started
 
 1.  Install *R* on your computer
