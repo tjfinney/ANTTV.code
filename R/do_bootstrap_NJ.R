@@ -18,8 +18,6 @@ do_bootstrap_NJ <- function(fr, write = FALSE, fn="output/NJ/bootstrap.png") {
   graphics::par(mar = rep(2, 4))
   plot(tree, main = "Bipartition Support Values")
   ape::drawSupportOnEdges(boot)
-  #legend("bottomleft", legend = "Bipartitions", pch = 22,
-  #       pt.bg = "green", pt.cex = 2.5)
   # Write plot to file
   if (write) {
     grDevices::dev.print(grDevices::png, file=fn, width=600)
