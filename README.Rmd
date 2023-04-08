@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-*ANTTV.code* is one of a set of repositories relating to analysis of New Testament textual variation:
+This is one of a set of repositories relating to analysis of New Testament textual variation:
 
 [ANTTV.book](https://github.com/tjfinney/ANTTV.book)
 : A book on analysis of New Testament textual variation.

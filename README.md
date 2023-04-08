@@ -5,7 +5,7 @@
 
 ## Introduction
 
-*ANTTV.code* is one of a set of repositories relating to analysis of New
+This is one of a set of repositories relating to analysis of New
 Testament textual variation:
 
 [ANTTV.book](https://github.com/tjfinney/ANTTV.book)  
