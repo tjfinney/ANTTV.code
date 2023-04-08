@@ -35,9 +35,9 @@ introduction to the analysis techniques.
 
 ## Installation
 
-Once *R* is installed, you can install the development version of
-*ANTTV.code* from [GitHub](https://github.com/) by entering the
-following commands at the *R* prompt:
+Once *R* is installed, you can install the *ANTTV.code* package from
+[GitHub](https://github.com/) by entering the following commands at the
+*R* prompt:
 
 ``` r
 install.packages("devtools")
