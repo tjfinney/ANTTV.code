@@ -8,10 +8,14 @@ do_bootstrap_NJ(fr, write = FALSE, fn = "output/NJ/bootstrap.png")
 }
 \arguments{
 \item{fr}{A data frame.}
+
+\item{write}{logical flag: (default = FALSE) if TRUE then a plot will be written to file fn.}
+
+\item{fn}{a connection or character string naming the file to write to.}
 }
 \value{
-A plot.
+An object of class "phylo".
 }
 \description{
-Estimate branch probabilities for an NJ tree estimate and plot the result.
+Estimate bipartition support values for an NJ tree estimate.
 }
