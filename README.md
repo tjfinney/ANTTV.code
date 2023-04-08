@@ -77,7 +77,7 @@ Mark.UBS4
 A data matrix comprised of 267 rows of observations (i.e. witnesses
 listed in the apparatus of Mark’s Gospel in the 4th ed. of the UBS
 *Greek New Testament*) and 142 variables (i.e. variation sites listed in
-the same apparatus).
+the same apparatus) compiled by Richard Mallett.
 
 Acts.UBS2.dist  
 A distance matrix constructed from tables of percentage agreement that
