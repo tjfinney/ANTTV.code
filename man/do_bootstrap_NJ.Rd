@@ -2,7 +2,7 @@
 % Please edit documentation in R/do_bootstrap_NJ.R
 \name{do_bootstrap_NJ}
 \alias{do_bootstrap_NJ}
-\title{Perform bootstrap test of a neighbour-joining tree estimate}
+\title{Perform bootstrap test of a neighbour-joining tree}
 \usage{
 do_bootstrap_NJ(fr, write = FALSE, fn = "output/NJ/bootstrap.png")
 }
@@ -17,5 +17,5 @@ do_bootstrap_NJ(fr, write = FALSE, fn = "output/NJ/bootstrap.png")
 An object of class "phylo".
 }
 \description{
-Estimate bipartition support values for an NJ tree estimate.
+Estimate bipartition support values for an NJ tree.
 }
