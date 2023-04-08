@@ -130,10 +130,12 @@ Analysis is performed by stringing together a chain of functions using
 the pipe operator (`|>`) to make the output of one step be the input of
 the next step:
 
+    ## load ANTTV.code package
+    library(ANTTV.code)
     ## input data frame, do data reduction, do distance matrix, do neighbour-joining analysis
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
 
-To obtain the same result from the same data stored at the Zenodo
+To obtain the same result from the same data stored at a Zenodo
 repository:
 
     read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv") |> do_reduction() |> do_dist() |> do_NJ()
@@ -142,12 +144,12 @@ To analyse a distance matrix:
 
     Acts.UBS2.dist |> do_NJ()
 
-To analyse the same distance matrix from the repository:
+To analyse the same distance matrix from a repository:
 
     read_dist_matrix("https://zenodo.org/record/6505843/files/Acts.UBS2.dist.csv") |> do_NJ()
 
 Different types of analysis results are obtained by varying the final
-step. E.g.
+step:
 
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_CMDS()
 
@@ -164,8 +166,6 @@ Specifying a witness to keep will prevent it being dropped by
 known at a sufficient number of variation sites:
 
     Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_NJ()
-
-or
 
     Mark.UBS4 |> do_reduction(keep="P45") |> do_dist() |> do_NJ()
 
