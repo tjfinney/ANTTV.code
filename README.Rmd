@@ -13,23 +13,34 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ANTTV code
-
 <!-- badges: start -->
 <!-- badges: end -->
 
-*ANTTV code* is a package of *R* programs for analysing data on New Testament textual variation. [How to discover textual groups](https://www.tfinney.net/Groups/index.xhtml) provides an introduction to the techniques involved.
+## Introduction
 
-To get started:
+*ANTTV.code* is one of a set of repositories relating to analysis of New Testament textual variation:
+
+[ANTTV.book](https://github.com/tjfinney/ANTTV.book)
+: A book on analysis of New Testament textual variation.
+
+[ANTTV.code](https://github.com/tjfinney/ANTTV.code)
+: Computer programs written in *R* (*a free software environment for statistical computing and graphics*) to analyse data relating to New Testament Textual variation.
+
+[ANTTV.data](https://github.com/tjfinney/ANTTV.data)
+: Data relating to New Testament textual variation.
+
+[How to discover textual groups](https://www.digitalstudies.org/article/id/7324/) provides an introduction to the analysis techniques.
+
+## Getting started
 
 1. Install *R* on your computer
-2. [Optional] To make life far easier, install RStudio on your computer
+2. [Optional] To make life far easier, install the [RStudio IDE](https://posit.co/download/rstudio-desktop/) on your computer
 3. Install the `ANTTV.code` package
 4. Use the programs in the package to analyse the data.
 
 ## Installation
 
-Once *R* is installed, you can install the development version of ANTTV from [GitHub](https://github.com/) by entering the following commands at the *R* prompt:
+Once *R* is installed, you can install the development version of *ANTTV.code* from [GitHub](https://github.com/) by entering the following commands at the *R* prompt:
 
 ``` r
 install.packages("devtools")
@@ -199,4 +210,3 @@ If you hit errors like `/usr/bin/ld: cannot find -llapack: No such file or direc
 3. Install Magick++ (on Linux): `sudo apt install libmagick++-dev`
 4. Install `magick` package in RStudio: `install.packages("magick")`
 5. Install ImageMagick (on Linux): `sudo apt install imagemagick`
-
