@@ -31,11 +31,9 @@ knitr::opts_chunk$set(
 
 [How to discover textual groups](https://www.digitalstudies.org/article/id/7324/) provides an introduction to the analysis techniques.
 
-...
-
 ## Getting started
 
-1. Install *R* on your computer
+1. Install [R](https://cran.r-project.org/doc/FAQ/R-FAQ.html#How-can-R-be-installed_003f) on your computer
 2. [Optional] To make life far easier, install the [RStudio IDE](https://posit.co/download/rstudio-desktop/) on your computer
 3. Install the `ANTTV.code` package
 4. Use the programs in the package to analyse the data.
