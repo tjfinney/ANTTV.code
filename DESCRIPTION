@@ -1,6 +1,6 @@
 Package: ANTTV.code
 Title: Analysis of New Testament Textual Variation (Code)
-Version: 2023.4.7.1
+Version: 2023.11.19.1
 Authors@R: 
     person("Tim", "Finney", , "tjf@tfinney.net", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8019-3102"))
@@ -8,7 +8,7 @@ Description: Code for analysis of New Testament textual variation.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.2
+RoxygenNote: 7.2.3
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
