@@ -11,7 +11,7 @@
 #' @return An object of class "phylo".
 #' @export
 #'
-do_bootstrap_NJ <- function(fr, write = FALSE, fn="output/NJ/bootstrap.png") {
+do_NJ_bootstrap <- function(fr, write = FALSE, fn="output/NJ/bootstrap.png") {
   fr1 <- do_reduction(fr)
   fun <- function(x) ape::as.phylo(do_NJ(do_dist(x)))
   tree <- fun(fr1)
