@@ -21,7 +21,7 @@ do_NJ_support <- function(fr, write = FALSE, fn="output/NJ/support.png") {
   # Do plot
   grDevices::graphics.off()
   graphics::par(mar = rep(2, 4))
-  plot(tree, main = "Bipartition Support Values")
+  plot(tree, main = "Support Values")
   ape::drawSupportOnEdges(boot)
   # Write plot to file
   if (write) {
