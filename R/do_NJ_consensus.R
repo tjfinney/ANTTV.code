@@ -21,7 +21,7 @@ do_NJ_consensus <- function(fr, write = FALSE, fn="output/NJ/consensus.png") {
   # Do plot
   grDevices::graphics.off()
   graphics::par(mar = rep(2, 4))
-  plot(con, main = "Majority-rule consensus NJ tree")
+  plot(con, main = "NJ tree majority-rule consensus")
   # Write plot to file
   if (write) {
     grDevices::dev.print(grDevices::png, file=fn, width=600)
