@@ -1,6 +1,7 @@
-#' Perform bootstrap test of a neighbour-joining tree
+#' Estimate support values for a neighbour-joining tree
 #'
-#' Estimate bipartition support values for an NJ tree.
+#' This uses bootstrap sampling of a data frame to produce a neighbour-joining tree with support values. Function do_reduction() is used with its default settings to reduce missing data in the input data frame. (It doesn't matter if the input data frame is already reduced.) Functions do_dist() and do_NJ() are used to produce 100 NJ trees from the reduced data frame. Support values are obtained from these trees.
+#'
 #'
 #' @param fr A data frame.
 #'
@@ -11,7 +12,7 @@
 #' @return An object of class "phylo".
 #' @export
 #'
-do_NJ_bootstrap <- function(fr, write = FALSE, fn="output/NJ/bootstrap.png") {
+do_NJ_support <- function(fr, write = FALSE, fn="output/NJ/support.png") {
   fr1 <- do_reduction(fr)
   fun <- function(x) ape::as.phylo(do_NJ(do_dist(x)))
   tree <- fun(fr1)
