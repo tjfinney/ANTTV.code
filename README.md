@@ -153,9 +153,9 @@ Perform partitioning around medoids on a distance matrix.
 
 ## Function chains
 
-Analysis is performed by stringing together a chain of functions using
-the pipe operator (`|>`) to make the output of one step be the input of
-the next step:
+The pipe operator (`|>`) is used to make the output of one step be the
+input of the next step. A chain of functions can be strung together to
+produce analysis results:
 
     ## load ANTTV.code package
     library(ANTTV.code)
