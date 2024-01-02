@@ -147,6 +147,8 @@ Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
 Mark.UBS4 |> do_reduction() |> do_dist() |> do_PAM()
 ```
 
+Details of the different analysis types (CMDS = classical multidimensional scaling, DC = divisive clustering, NJ = neighbour-joining, PAM = partitioning around medoids) can be found in the references. In PAM analysis, *ASW* is the *average silhouette width*, also known as the *mean silhouette width*, *MSW*. Peaks in *ASW* versus number of groups indicate better groupings.
+
 Bootstrap sampling of an input data matrix can be used to produce a neighbour-joining tree with support values or the majority-rule consensus neighbour-joining tree:
 
 ```
@@ -187,13 +189,11 @@ rowSums(!is.na(read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS
 
 ## Saving results
 
-Analysis results from `do_CMDS()`, `do_DC()`, `do_NJ()`, or `do_PAM()` can be saved by setting the *write* flag to `TRUE` and specifying an output file:
+Results from `do_CMDS()`, `do_DC()`, `do_NJ()`, `do_NJ_consensus()`, `do_NJ_support()`, or `do_PAM()` can be saved by setting the *write* flag to `TRUE` and specifying an output file:
 
 ```
 Mark.UBS4 |> do_reduction(keep="Origen") |> do_dist() |> do_PAM(fn="output/PAM/Mark.UBS4.Origin.txt", write=TRUE)
 ```
-
-(In PAM analysis, *ASW* is the *average silhouette width*, also known as the *mean silhouette width*, *MSW*. Peaks in *ASW* versus number of groups indicate better groupings.)
 
 A distance matrix can be saved by concluding the function chain with `write.csv()` and specifying an output file:
 
