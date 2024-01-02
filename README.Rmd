@@ -72,7 +72,7 @@ Numerous other New Testament data sets are available from these Zenodo repositor
 
 Details of the different analysis types (CMDS = classical multidimensional scaling, DC = divisive clustering, NJ = neighbour-joining, PAM = partitioning around medoids) can be found in the references.
 
-Bootstrap sampling of an input data matrix can be used in conjunction with neighbour-joining to include support values or obtain a majority-rule tree. Due to the random nature of the sampling process, results are liable to change every time a bootstrap program is executed.
+In NJ analysis, bootstrap sampling of an input data matrix can be used to include support values or obtain a majority-rule tree. Due to the random nature of the sampling process, results are liable to change every time a bootstrap program is executed.
 
 In PAM analysis, *ASW* is the *average silhouette width*, also known as the *mean silhouette width*, *MSW*. Peaks in *ASW* versus number of groups indicate better groupings.
 
