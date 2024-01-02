@@ -90,6 +90,22 @@ repositories:
 - [Data matrices](https://zenodo.org/record/4064629)
 - [Distance matrices](https://zenodo.org/record/4064631)
 
+## Analysis methods
+
+Details of the different analysis types (CMDS = classical
+multidimensional scaling, DC = divisive clustering, NJ =
+neighbour-joining, PAM = partitioning around medoids) can be found in
+the references.
+
+Bootstrap sampling of an input data matrix can be used in conjunction
+with neighbour-joining to include support values or obtain a
+majority-rule tree. Due to the random nature of the sampling process,
+results are liable to change every time a bootstrap program is executed.
+
+In PAM analysis, *ASW* is the *average silhouette width*, also known as
+the *mean silhouette width*, *MSW*. Peaks in *ASW* versus number of
+groups indicate better groupings.
+
 ## Functions
 
 `read_data_frame()`  
@@ -114,13 +130,13 @@ Calculate the distance between each possible pairing of witnesses in a
 data matrix.
 
 `do_CMDS()`  
-Perform classical multi-dimensional scaling.
+Perform classical multi-dimensional scaling on a distance matrix.
 
 `do_DC()`  
-Perform divisive clustering.
+Perform divisive clustering on a distance matrix.
 
 `do_NJ()`  
-Perform neighbour-joining.
+Perform neighbour-joining on a distance matrix.
 
 `do_NJ_consensus()`  
 Use bootstrap sampling of a data matrix to obtain the majority-rule
@@ -133,7 +149,7 @@ neighbour-joining tree. (This uses do_reduction() with its default
 settings to reduce missing data in the input data matrix.)
 
 `do_PAM()`  
-Perform partitioning around medoids.
+Perform partitioning around medoids on a distance matrix.
 
 ## Function chains
 
@@ -170,23 +186,11 @@ step:
 
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_PAM()
 
-Details of the different analysis types (CMDS = classical
-multidimensional scaling, DC = divisive clustering, NJ =
-neighbour-joining, PAM = partitioning around medoids) can be found in
-the references. In PAM analysis, *ASW* is the *average silhouette
-width*, also known as the *mean silhouette width*, *MSW*. Peaks in *ASW*
-versus number of groups indicate better groupings.
-
-Bootstrap sampling of an input data matrix can be used to produce a
-neighbour-joining tree with support values or the majority-rule
-consensus neighbour-joining tree:
+To include NJ support values or obtain a majority-rule consensus tree:
 
     Mark.UBS4 |> do_NJ_support()
 
     Mark.UBS4 |> do_NJ_consensus()
-
-Due to the random nature of the bootstrap sampling process, the results
-of these two programs are liable to change every time they are executed.
 
 ## Keeping a particular witness
 
