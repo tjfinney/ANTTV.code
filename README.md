@@ -49,7 +49,7 @@ devtools::install_github("tjfinney/ANTTV.code")
 A data matrix specifies the textual state of each witness
 (e.g. manuscript, lectionary, version, Church Father) at a series of
 variation sites (i.e. places where the texts differ). Each data matrix
-has a row for each witnesses and a column for each variation site. Cells
+has a row for each witness and a column for each variation site. Cells
 of the matrix contain symbols (typically numerals) that represent the
 textual states of the witnesses at the variation sites. If the state of
 a witness is not known at a particular site then the symbol `NA` is
@@ -93,7 +93,8 @@ repositories:
 ## Functions
 
 `read_data_frame()`  
-Make a data frame from a comma-separated vector (CSV) file.
+Read a data matrix from a comma-separated vector (CSV) file. (A data
+frame is the R data structure used to store a data matrix.)
 
 `read_dist_matrix()`  
 Read a distance matrix from a comma-separated vector (CSV) file.
@@ -120,6 +121,16 @@ Perform divisive clustering.
 
 `do_NJ()`  
 Perform neighbour-joining.
+
+`do_NJ_consensus()`  
+Use bootstrap sampling of a data matrix to obtain the majority-rule
+consensus neighbour-joining tree. (This uses do_reduction() with its
+default settings to reduce missing data in the input data matrix.)
+
+`do_NJ_support()`  
+Use bootstrap sampling of a data matrix to obtain support values for the
+neighbour-joining tree. (This uses do_reduction() with its default
+settings to reduce missing data in the input data matrix.)
 
 `do_PAM()`  
 Perform partitioning around medoids.
@@ -158,6 +169,17 @@ step:
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_NJ()
 
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_PAM()
+
+Bootstrap sampling of an input data matrix can be used to produce a
+neighbour-joining tree with support values or the majority-rule
+consensus neighbour-joining tree:
+
+    Mark.UBS4 |> do_NJ_support()
+
+    Mark.UBS4 |> do_NJ_consensus()
+
+Due to the random nature of the bootstrap sampling process, the results
+of these two programs are liable to change every time they are executed.
 
 ## Keeping a particular witness
 
@@ -230,3 +252,31 @@ following steps were required to get it working:
 3.  Install Magick++ (on Linux): `sudo apt install libmagick++-dev`
 4.  Install `magick` package in RStudio: `install.packages("magick")`
 5.  Install ImageMagick (on Linux): `sudo apt install imagemagick`
+
+## References
+
+Chatfield, Christopher and Alexander J. Collins. 1980. *Introduction to
+Multivariate Analysis.* London: Chapman and Hall.
+
+Felsenstein, Joseph. 2004. *Inferring Phylogenies.* Sunderland, MA:
+Sinauer.
+
+Maechler, Martin, Peter Rousseeuw, Anja Struyf, Mia Hubert, Kurt Hornik.
+2023. *cluster: Cluster Analysis Basics and Extensions.* R package
+version 2.1.6.
+
+Murdoch, Duncan and Daniel Adler. 2023. *rgl: 3D Visualization Using
+OpenGL.* R package version 1.2.8,
+<https://CRAN.R-project.org/package=rgl>.
+
+Paradis, Emmanuel. 2012. *Analysis of Phylogenetics and Evolution with
+R.* 2nd ed. New York, NY: Springer.
+
+Paradis, Emmanuel and Klaus Schliep. 2019. *ape 5.0: an environment for
+modern phylogenetics and evolutionary analyses in R.* *Bioinformatics*
+35, 526-528. <doi:10.1093/bioinformatics/bty633>
+<https://doi.org/10.1093/bioinformatics/bty633>.
+
+R Core Team. 2023. *R: A Language and Environment for Statistical
+Computing.* Vienna: R Foundation for Statistical Computing.
+<https://www.R-project.org/>.
