@@ -151,6 +151,12 @@ settings to reduce missing data in the input data matrix.)
 `do_PAM()`  
 Perform partitioning around medoids on a distance matrix.
 
+`do_rank()`  
+For each witness, rank other witnesses by distance. (This uses
+do_reduction() with its default settings to reduce missing data in the
+input data matrix.) Distances that are not expected to happen by chance
+are marked by an asterisk (“\*“).
+
 ## Function chains
 
 The pipe operator (`|>`) is used to make the output of one step be the
@@ -186,11 +192,23 @@ step:
 
     Mark.UBS4 |> do_reduction() |> do_dist() |> do_PAM()
 
+## Functions that incorporate do_reduction()
+
+For various reasons, certain functions (`do_NJ_support()`,
+`do_NJ_consensus()`, `do_rank()`) need to operate directly on a data
+matrix rather than a distance matrix. These functions incorporate
+`do_reduction()` as part of their internal processing chain. (It doesn’t
+matter if `do_reduction()` has already been applied to the input.)
+
 To include NJ support values or obtain a majority-rule consensus tree:
 
     Mark.UBS4 |> do_NJ_support()
 
     Mark.UBS4 |> do_NJ_consensus()
+
+To produce ranked distances from each witness:
+
+    Mark.UBS4 |> do_rank()
 
 ## Keeping a particular witness
 

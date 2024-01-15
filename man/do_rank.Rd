@@ -2,7 +2,7 @@
 % Please edit documentation in R/do_rank.R
 \name{do_rank}
 \alias{do_rank}
-\title{Rank witnesses by distance from each witness}
+\title{For each witness, rank other witnesses by distance}
 \usage{
 do_rank(
   fr,

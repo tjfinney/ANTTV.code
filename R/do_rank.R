@@ -1,4 +1,4 @@
-#' Rank witnesses by distance from each witness
+#' For each witness, rank other witnesses by distance
 #'
 #' This uses do_reduction() to reduce missing data then do_dist() to obtain the corresponding distance matrix. (It doesn't matter if the input data frame is already reduced.)
 #'
@@ -23,13 +23,6 @@ do_rank <- function(fr, n=15, keep="", alpha=0.05, write = FALSE, fn="output/ran
   fr1 <- do_reduction(fr, keep=keep, n=n)
   dist1 <- do_dist(fr1)
   cts1 <- do_counts(fr1)
-  # Estimate mean probability of disagreement
-  d1 <- mean(stats::as.dist(dist1))
-  # Obtain critical distances
-  LCD <- stats::qbinom(alpha/2, cts1, d1)/cts1
-  UCD <- stats::qbinom(1 - (alpha/2), cts1, d1)/cts1
-  lt_LCD <- ((dist1 - LCD) < 0)
-  gt_UCD <- ((dist1 - UCD) > 0)
   # Make output
   ww <- row.names(fr1)
   # Matrix for output
@@ -48,8 +41,8 @@ do_rank <- function(fr, n=15, keep="", alpha=0.05, write = FALSE, fn="output/ran
     pr <- mean(dd[names(dd) != w])
     # Lower and upper critical distances
     # Critical distances depend on numbers of pair-wise defined counts
-    lcd <- qbinom(alpha/2, cc, pr)/cc
-    ucd <- qbinom(1- (alpha/2), cc, pr)/cc
+    lcd <- stats::qbinom(alpha/2, cc, pr)/cc
+    ucd <- stats::qbinom(1- (alpha/2), cc, pr)/cc
     # Whether given distance is outside expected bounds
     is_significant <- (((dd - lcd) < 0) | ((dd - ucd) > 0))
     fr_w[["dist"]] <- dd
@@ -80,8 +73,8 @@ do_rank <- function(fr, n=15, keep="", alpha=0.05, write = FALSE, fn="output/ran
     cat(
       sprintf(
         "|: %s |: %s |\n",
-        row.names(out),
-        out[, "Ranked distances"]
+        row.names(mx_out),
+        mx_out[, "Ranked distances"]
       ),
       file = zz
     )
