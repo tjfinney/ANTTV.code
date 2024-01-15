@@ -2,7 +2,7 @@
 #'
 #' This uses do_reduction() to reduce missing data then do_dist() to obtain the corresponding distance matrix. (It doesn't matter if the input data frame is already reduced.)
 #'
-#' Function stats::qbinom() is used to estimate lower and upper critical limits distance (LCD, UCD). Distances that are less than the LCD or greater than the UCD are marked with an asterisk in the output.
+#' Function stats::qbinom() is used to estimate lower and upper critical distances (LCD, UCD). Distances that are less than the LCD or greater than the UCD are marked with an asterisk. (Such distances are not expected to happen by chance.)
 #'
 #' @param fr a data frame.
 #'
@@ -72,7 +72,7 @@ do_rank <- function(fr, n=15, keep="", alpha=0.05, write = FALSE, fn="output/ran
     cat("|:------|:------------------------------------|\n", file = zz)
     cat(
       sprintf(
-        "|: %s |: %s |\n",
+        "| %s | %s |\n",
         row.names(mx_out),
         mx_out[, "Ranked distances"]
       ),
