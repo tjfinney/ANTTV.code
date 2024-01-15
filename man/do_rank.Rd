@@ -33,5 +33,5 @@ A matrix giving ranked distances for each witness.
 This uses do_reduction() to reduce missing data then do_dist() to obtain the corresponding distance matrix. (It doesn't matter if the input data frame is already reduced.)
 }
 \details{
-Function stats::qbinom() is used to estimate lower and upper critical limits distance (LCD, UCD). Distances that are less than the LCD or greater than the UCD are marked with an asterisk in the output.
+Function stats::qbinom() is used to estimate lower and upper critical distances (LCD, UCD). Distances that are less than the LCD or greater than the UCD are marked with an asterisk. (Such distances are not expected to happen by chance.)
 }

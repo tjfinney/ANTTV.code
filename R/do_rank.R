@@ -53,7 +53,7 @@ do_rank <- function(fr, n=15, keep="", alpha=0.05, write = FALSE, fn="output/ran
     ranked <- subset(ranked, rownames(ranked) != w)
     # Add asterisk to mark significant distances
     sig <- as.array(ranked$is_sig)
-    ranked[["star"]] <- apply(sig, 1, function(x) if (x) "*" else "")
+    ranked[["star"]] <- apply(sig, 1, function(x) if (x) "\\*" else "")
     # Make output string
     mx_out[w, "Ranked distances"] <- paste(
       sprintf(
