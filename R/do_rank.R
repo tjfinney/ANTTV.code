@@ -4,6 +4,8 @@
 #'
 #' Function stats::qbinom() is used to estimate lower and upper critical distances (LCD, UCD). Distances that are less than the LCD or greater than the UCD are marked with an asterisk. (Such distances are not expected to happen by chance.)
 #'
+#' Asterices are escaped (with "\") to facilitate use of output files in Markdown documents.
+#'
 #' @param fr a data frame.
 #'
 #' @param n minimum acceptable number of pairwise defined columns in the reduced data frame. Values can range from 1 to the number of columns. (Default = 15.)
