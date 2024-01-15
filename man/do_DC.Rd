@@ -4,7 +4,7 @@
 \alias{do_DC}
 \title{Perform divisive clustering analysis}
 \usage{
-do_DC(dm, write = FALSE, fn = "../DC/output.png")
+do_DC(dm, write = FALSE, fn = "output/DC/output.png")
 }
 \arguments{
 \item{dm}{A distance matrix.}

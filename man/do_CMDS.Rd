@@ -4,7 +4,7 @@
 \alias{do_CMDS}
 \title{Perform classical multidimensional scaling}
 \usage{
-do_CMDS(dm, write = FALSE, fp = "../CMDS/", fn = "output")
+do_CMDS(dm, write = FALSE, fp = "output/CMDS/", fn = "output")
 }
 \arguments{
 \item{dm}{A distance matrix.}

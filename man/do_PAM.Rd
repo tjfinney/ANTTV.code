@@ -4,7 +4,7 @@
 \alias{do_PAM}
 \title{Do PAM (partitioning around medoids) analysis.}
 \usage{
-do_PAM(dm, write = FALSE, fn = "../PAM/output.txt", ks = 2:20)
+do_PAM(dm, write = FALSE, fn = "output/PAM/output.txt", ks = 2:20)
 }
 \arguments{
 \item{dm}{A distance matrix.}

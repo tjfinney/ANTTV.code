@@ -4,19 +4,19 @@
 #'
 #' Function stats::qbinom() is used to estimate lower and upper critical limits distance (LCD, UCD). Distances that are less than the LCD or greater than the UCD are marked with an asterisk in the output.
 #'
-#' @param fr A data frame.
+#' @param fr a data frame.
 #'
-#' @param n Minimum acceptable number of pairwise defined columns in the reduced data frame. Values can range from 1 to the number of columns. (Default = 15.)
+#' @param n minimum acceptable number of pairwise defined columns in the reduced data frame. Values can range from 1 to the number of columns. (Default = 15.)
 #'
-#' @param keep A row to be kept from elimination provided that it has enough defined (i.e. non-NA) elements to satisfy the minimum acceptable number condition.
+#' @param keep a row to be kept from elimination provided that it has enough defined (i.e. non-NA) elements to satisfy the minimum acceptable number condition.
 #'
-#' @param alpha Alpha value (i.e. probability of a type I error) (default = 0.05).
+#' @param alpha alpha value (i.e. probability of a type I error) (default = 0.05).
 #'
 #' @param write logical flag: (default = FALSE) if TRUE then ranked distances will be written to file fn.
 #'
 #' @param fn a connection or character string naming the file to write to.
 #'
-#' @return A data frame giving ranked distances from each witness.
+#' @return A matrix giving ranked distances for each witness.
 #' @export
 #'
 do_rank <- function(fr, n=15, keep="", alpha=0.05, write = FALSE, fn="output/rank/output.txt") {
@@ -26,8 +26,8 @@ do_rank <- function(fr, n=15, keep="", alpha=0.05, write = FALSE, fn="output/ran
   # Estimate mean probability of disagreement
   d1 <- mean(stats::as.dist(dist1))
   # Obtain critical distances
-  LCD <- qbinom(alpha/2, cts1, d1)/cts1
-  UCD <- qbinom(1 - (alpha/2), cts1, d1)/cts1
+  LCD <- stats::qbinom(alpha/2, cts1, d1)/cts1
+  UCD <- stats::qbinom(1 - (alpha/2), cts1, d1)/cts1
   lt_LCD <- ((dist1 - LCD) < 0)
   gt_UCD <- ((dist1 - UCD) > 0)
   # Make output
@@ -58,7 +58,7 @@ do_rank <- function(fr, n=15, keep="", alpha=0.05, write = FALSE, fn="output/ran
     ranked <- fr_w[order(fr_w$dist),]
     # Drop distance to self (always zero)
     ranked <- subset(ranked, rownames(ranked) != w)
-    # Add star component
+    # Add asterisk to mark significant distances
     sig <- as.array(ranked$is_sig)
     ranked[["star"]] <- apply(sig, 1, function(x) if (x) "*" else "")
     # Make output string
@@ -76,7 +76,15 @@ do_rank <- function(fr, n=15, keep="", alpha=0.05, write = FALSE, fn="output/ran
   if (write) {
     zz <- file(fn, "w")
     cat("| Witness | Ranked distances |\n", file = zz)
-    cat("|:------|:----------------------|\n", file = zz)
+    cat("|:------|:------------------------------------|\n", file = zz)
+    cat(
+      sprintf(
+        "|: %s |: %s |\n",
+        row.names(out),
+        out[, "Ranked distances"]
+      ),
+      file = zz
+    )
     close(zz)
   }
   # Return result
