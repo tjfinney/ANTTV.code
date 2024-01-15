@@ -14,7 +14,7 @@
 #'
 #' @export
 #'
-do_CMDS <- function(dm, write = FALSE, fp = "../CMDS/", fn = "output") {
+do_CMDS <- function(dm, write = FALSE, fp = "output/CMDS/", fn = "output") {
   # Do analysis
   distances <- stats::as.dist(dm)
   MDS <- stats::cmdscale(distances, k=3, eig=TRUE)

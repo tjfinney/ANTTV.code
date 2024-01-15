@@ -11,7 +11,7 @@
 #' @return An object of class "diana" representing the clustering.
 #' @export
 #'
-do_DC <- function(dm, write = FALSE, fn = "../DC/output.png") {
+do_DC <- function(dm, write = FALSE, fn = "output/DC/output.png") {
   # Perform analysis
   DC <- cluster::diana(stats::as.dist(dm))
   # Do plot
