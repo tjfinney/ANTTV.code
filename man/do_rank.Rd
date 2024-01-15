@@ -34,4 +34,6 @@ This uses do_reduction() to reduce missing data then do_dist() to obtain the cor
 }
 \details{
 Function stats::qbinom() is used to estimate lower and upper critical distances (LCD, UCD). Distances that are less than the LCD or greater than the UCD are marked with an asterisk. (Such distances are not expected to happen by chance.)
+
+The output format facilitates use in Markdown documents. (E.g., asterices are escaped with "\".)
 }
