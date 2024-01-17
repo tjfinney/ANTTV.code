@@ -233,6 +233,14 @@ a data matrix are known:
 
     rowSums(!is.na(read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv")))
 
+## Dropping particular witnesses
+
+Witnesses can be dropped by inserting a filter into the pipeline:
+
+``` r
+Mark.UBS4 |> (\(d) (d[(!row.names(d) %in% c("UBS", "Byz", "2427")),]))() |> do_rank()
+```
+
 ## Saving results
 
 Results from `do_CMDS()`, `do_DC()`, `do_NJ()`, `do_NJ_consensus()`,
