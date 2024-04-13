@@ -21,6 +21,6 @@ The output is the distance matrix obtained by taking the 100 complement of the p
 This uses utils::read.csv to read the input CSV file.
 }
 \examples{
-# do_PA_to_dist("../Raw/Acts-Hyytiäinen-CBGM.csv")
+# do_PA_to_dist("my_percentage_agreements.csv")
 
 }
