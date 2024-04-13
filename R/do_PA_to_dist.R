@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' # convert_agree_to_dist("../Raw/Acts-Hyytiäinen-CBGM.csv")
+#' # do_PA_to_dist("../Raw/Acts-Hyytiäinen-CBGM.csv")
 #'
 convert_agree_to_dist <- function(file) {
   agree <- as.matrix(utils::read.csv(file, row.names=1, check.names=FALSE))
