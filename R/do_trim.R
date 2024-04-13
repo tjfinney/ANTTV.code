@@ -18,8 +18,10 @@ do_trim <- function(dm, ref="Byz", d=0.25) {
       stopifnot(d > 0)
       stopifnot(d < 1)
       # Find witnesses within d of ref
+      row_ref <- dm[ref,]
+      keep <- names(row_ref[row_ref > d])
       # Return result
-      dm
+      dm[keep, keep]
     }
   )
 }
