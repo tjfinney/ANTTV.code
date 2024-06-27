@@ -1,24 +1,27 @@
-#' Divide a data frame into a specified number of column-wise segments
+#' Divide a data frame into n column-wise segments
 #'
-#' The last segment will contain remaining columns if the number of segments is
-#' not a divisor of the number of data frame columns. Segments are written as
-#' CSV files with names derived from the output file stem. E.g. if n is 4 and
-#' the stem is "data/Mark.UBS4" then the output files will be written to:
+#' The last segment will contain remaining columns if n is not a divisor of the
+#' number of data frame columns.
+#'
+#' File paths are relative to the current working directory (gettable with
+#' getwd() and settable with setwd()). Segments are written as CSV files with
+#' names derived from the output file stem. E.g. if n is 4 and the stem is
+#' "data/Mark.UBS4" then the output files will be written to:
+#'
 #' * "data/Mark.UBS4.a.csv"
-#' * "data/Mark.UBS4.b.csv"
+#' * "data/Mark.UBS4.b.csv",
 #' * "data/Mark.UBS4.c.csv"
 #' * "data/Mark.UBS4.d.csv"
-#' File paths are relative to the current working directory, gettable with
-#' getwd() and settable with setwd().
 #'
 #' @param fr A data frame
+#' @param write logical flag: (default = FALSE) if TRUE then write output files
 #' @param n Number of segments (must be less than or equal to 26)
 #' @param fn Output file stem
 #'
 #' @return Nothing. Output files are produced as a side effect.
 #' @export
 #'
-do_segments_by_column <- function(fr, n = 4, fn = "data/Mark.UBS4") {
+do_segments_by_column <- function(fr, write = FALSE, n = 4, fn = "data/Mark.UBS4") {
   # Initial checks
   stopifnot(
     "input is not a data frame" = is.data.frame(fr),
@@ -38,7 +41,9 @@ do_segments_by_column <- function(fr, n = 4, fn = "data/Mark.UBS4") {
     last <- first + chunks[i] - 1
     seg <- fr[, first:last]
     f_name <- paste(c(fn, letters[i], "csv"), collapse=".")
-    message(paste0(c("write ", f_name)))
-    write.csv(seg, f_name)
+    if (write) {
+      message(paste0(c("write ", f_name)))
+      utils::write.csv(seg, f_name)
+    }
   }
 }

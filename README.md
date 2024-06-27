@@ -157,6 +157,12 @@ do_reduction() with its default settings to reduce missing data in the
 input data matrix.) Distances that are not expected to happen by chance
 are marked by an asterisk (“\*“).
 
+`do_segments_by_column()`  
+Divide a data frame into a number of data frames, each containing
+consecutive sets of columns from the input data frame. This function
+does not produce an output, instead writing output data frames as a side
+effect.
+
 ## Function chains
 
 The pipe operator (`|>`) is used to make the output of one step be the
@@ -240,6 +246,24 @@ Witnesses can be dropped by inserting a filter into the pipeline:
 ``` r
 Mark.UBS4 |> (\(d) (d[(!row.names(d) %in% c("UBS", "Byz", "2427")),]))() |> do_rank()
 ```
+
+## Column-wise data frame subsets
+
+`do_segments_by_column()` writes a number of column-wise subsets of a
+data frame to a corresponding number of output files as a side effect.
+(The function has no output so cannot be used in a function chain.) As
+an example, the following will produce four output files
+(“data/Mark.UBS4.a.csv”, “data/Mark.UBS4.b.csv”, “data/Mark.UBS4.b.csv”,
+“data/Mark.UBS4.b.csv”). The file path (`data/` in this example) is
+relative to the current working directory.
+
+``` r
+Mark.UBS4 |> do_segments_by_column(write = TRUE, n = 4, fn = "data/Mark.UBS4")
+```
+
+The resulting files can then be processed in the usual way:
+
+    read_data_frame("data/Mark.UBS4.a.csv") |> do_reduction() |> do_dist() |> do_NJ()
 
 ## Saving results
 
