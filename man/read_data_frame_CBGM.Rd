@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_data_frame_CBGM.R
 \name{read_data_frame_CBGM}
 \alias{read_data_frame_CBGM}
-\title{Read a CBGM CSV file.}
+\title{Read a CBGM file}
 \usage{
 read_data_frame_CBGM(fn)
 }
@@ -13,10 +13,11 @@ read_data_frame_CBGM(fn)
 A data frame.
 }
 \description{
-Input is a semi-colon separated text file with the following format:
+Read a CBGM data file to produce a data frame of witnesses (as rows),
+variation sites (as columns), and reading codes (as cells).
 }
 \details{
-\tabular{ll}{
+The input data file must have the following format:\tabular{ll}{
    Field nos \tab Description \cr
    1 \tab record no \cr
    2-10 \tab site addresses (e.g. 20101010) \cr

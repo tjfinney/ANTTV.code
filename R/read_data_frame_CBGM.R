@@ -1,6 +1,9 @@
-#' Read a CBGM CSV file.
+#' Read a CBGM file
 #'
-#' Input is a semi-colon separated text file with the following format:
+#' Read a CBGM data file to produce a data frame of witnesses (as rows),
+#' variation sites (as columns), and reading codes (as cells).
+#'
+#' The input data file must have the following format:
 #'
 #' Field nos | Description
 #' ------------|------------
