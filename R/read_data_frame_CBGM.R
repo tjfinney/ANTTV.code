@@ -43,10 +43,7 @@
 #' @return A data frame.
 #' @export
 #'
-#' @examples
-#' read_CBGM("./data/Mk_CBGM_raw.csv") |> write.csv(file = "./data/Mk_CBGM.csv")
-#'
-read_CBGM <- function(fn) {
+read_data_frame_CBGM <- function(fn) {
   # Read fields 9, 10, 11, 14, and 15 into input data frame
   df_in <- utils::read.csv2(fn, header=FALSE, na.strings=c("zz", "zu", "zw"), colClasses = c(
     "NULL",

@@ -112,6 +112,11 @@ groups indicate better groupings.
 Read a data matrix from a comma-separated vector (CSV) file. (A data
 frame is the R data structure used to store a data matrix.)
 
+`read_data_frame_CBGM()`  
+Read a CBGM (Coherence-based Genealogical Method) data file and convert
+it to a data frame suitable for further analysis using the programs in
+this package.
+
 `read_dist_matrix()`  
 Read a distance matrix from a comma-separated vector (CSV) file.
 

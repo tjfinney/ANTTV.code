@@ -1,6 +1,6 @@
 Package: ANTTV.code
 Title: Analysis of New Testament Textual Variation (Code)
-Version: 2024.06.27.01
+Version: 2024.06.28.01
 Authors@R: 
     person("Tim", "Finney", , "tjf@tfinney.net", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8019-3102"))
