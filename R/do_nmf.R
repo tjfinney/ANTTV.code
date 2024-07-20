@@ -26,5 +26,5 @@ do_nmf <- function(fr, rank = 2, method = "ls-nmf", write = FALSE, fn = "output/
     grDevices::dev.print(grDevices::png, file=fn, width=1000, height=600)
   }
   # Return result
-  res
+  NMF::basismap(res, tracks=':basis', annColor=list(basis=1:rank))
 }
