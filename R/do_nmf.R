@@ -4,11 +4,15 @@
 #'
 #' @param fr A data frame.
 #'
+#' @param rank NMF rank (default = 2)
+#'
+#' @param method NMF method (default = "ls-nmf")
+#'
 #' @param write logical flag: (default = FALSE) if TRUE then a plot will be written to file fn.
 #'
 #' @param fn a connection or character string naming the file to write to.
 #'
-#' @return An object of class "NMFfit".
+#' @return A basis map.
 #' @export
 #'
 do_nmf <- function(fr, rank = 2, method = "ls-nmf", write = FALSE, fn = "output/NMF/output.png") {

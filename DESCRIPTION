@@ -18,7 +18,8 @@ Imports:
     stats,
     rgl,
     ape,
-    grDevices
+    grDevices,
+    NMF
 URL: https://github.com/tjfinney/ANTTV-code
 BugReports: https://github.com/tjfinney/ANTTV-code/issues
 Depends: 

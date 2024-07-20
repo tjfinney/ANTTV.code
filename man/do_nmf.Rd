@@ -15,12 +15,16 @@ do_nmf(
 \arguments{
 \item{fr}{A data frame.}
 
+\item{rank}{NMF rank (default = 2)}
+
+\item{method}{NMF method (default = "ls-nmf")}
+
 \item{write}{logical flag: (default = FALSE) if TRUE then a plot will be written to file fn.}
 
 \item{fn}{a connection or character string naming the file to write to.}
 }
 \value{
-An object of class "NMFfit".
+A basis map.
 }
 \description{
 Do NMF.
