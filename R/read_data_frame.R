@@ -13,5 +13,5 @@
 #' x <- read_data_frame("https://zenodo.org/record/6466262/files/Mark.UBS4.csv")
 #'
 read_data_frame <- function(fn) {
-  utils::read.csv(fn, row.names=1, colClasses="factor")
+  utils::read.csv(fn, row.names=1, colClasses="factor", na.strings="NA")
 }

@@ -16,14 +16,15 @@
 #' @export
 #'
 do_nmf <- function(fr, rank = 2, method = "ls-nmf", write = FALSE, fn = "output/NMF/output.png") {
+  # X is target matrix
+  X <- t(data.matrix(fr))
   # Handle NAs
-  x <- data.matrix(fr)
-  NA_cells <- is.na(x)
-  x[ NA_cells ] <- 99999
-  w <- matrix(1, nrow(x), ncol(x))
-  w[ NA_cells ] <- 0
+  NA_cells <- is.na(X)
+  X[ NA_cells ] <- 99999
+  W <- matrix(1, nrow(X), ncol(X))
+  W[ NA_cells ] <- 0
   # Perform analysis
-  res <- NMF::nmf(x, rank, method, weight = w)
+  res <- NMF::nmf(X, rank, method, weight = W)
   # Do plot
   # Write plot to file
   if (write) {
