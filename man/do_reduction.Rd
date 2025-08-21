@@ -20,9 +20,8 @@ A data frame where the number of pairwise defined columns is at least equal to t
 }
 \description{
 Drop rows from a data set until the number of pairwise defined columns is at least equal to a minimum acceptable number for every combination of two remaining rows. Given a selection of two rows, a column is pairwise defined if its elements are defined for both rows (i.e. neither row has NA for that column).
+Reduction is achieved by dropping rows that cause the number of pairwise defined columns to fail the minimum acceptable number condition. The process has two stages. In the first stage, all rows with fewer than the minimum acceptable number of defined elements are dropped as they cannot satisfy the condition when in combination with another row. The second stage is iterative. At each step, rows associated with the least number of pairwise defined counts are identified and one is dropped. (A row that has been nominated to be kept will not be dropped at this stage.) The row elimination process continues until the least number of pairwise counts reaches the minimum acceptable number.
 }
 \details{
-Reduction is achieved by dropping rows that cause the number of pairwise defined columns to fail the minimum acceptable number condition. The process has two stages. In the first stage, all rows with fewer than the minimum acceptable number of defined elements are dropped as they cannot satisfy the condition when in combination with another row. The second stage is iterative. At each step, rows associated with the least number of pairwise defined counts are identified and one is dropped. (A row that has been nominated to be kept will not be dropped at this stage.) The row elimination process continues until the least number of pairwise counts reaches the minimum acceptable number.
-
 This code incorporates suggestions by Bill Venables (see Jan 2014 archive at https://list.science.auckland.ac.nz/sympa/arc/stat-rdownunder).
 }

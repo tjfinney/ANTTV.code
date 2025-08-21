@@ -10,8 +10,8 @@ do_numeric_states(fr)
 \item{fr}{A data frame.}
 }
 \value{
-A data frame of input states encoded as integers.
+A data frame of numeric states as factors.
 }
 \description{
-Convert data frame states to numeric values. Given the symbols in a data frame (whether alphanumeric or whatever) this first maps all symbols of the data frame to a range of integers (from 1 to the number of unique symbols) then produces a one to one mapping from input to output data frame states. Symbols of input and output data frames are treated as factors. Please see documentation for \code{as.factor()}. Beware that adding input states will change output encodings. E.g. if initial mapping is ɑ = "1", ɒ = "2", ɔ = "3", ɕ = "4", adding ɓ results in ɑ = "1", ɒ = "2", ɓ = "3", ɔ = "4", ɕ = "5" and mapping differs for output states "3" and "4".
+Convert data frame states to numeric values. Given the symbols in a data frame (whether alphanumeric or whatever) this first maps all symbols of the data frame to a range of integers (from 1 to the number of unique symbols) then produces a one to one mapping from input to output data frame states. Symbols of input and output data frames are treated as factors. Please see documentation for \code{as.factor()}. Beware that adding input states will change the mapping. E.g. if initial mapping is ɑ = "1", ɒ = "2", ɔ = "3", ɕ = "4", adding ɓ results in ɑ = "1", ɒ = "2", ɓ = "3", ɔ = "4", ɕ = "5" and mapping differs for output states "3" and "4".
 }
