@@ -1,6 +1,7 @@
 #' Do PAM (partitioning around medoids) analysis.
 #'
 #' According to the cluster::pam() documentation, 'The pam-algorithm is based on the search for k representative objects or medoids among the observations of the dataset. These observations should represent the structure of the data. After finding a set of k medoids, k clusters are constructed by assigning each observation to the nearest medoid. The goal is to find k representative objects which minimize the sum of the dissimilarities of the observations to their closest representative object.'
+#'
 #' The output clustering is the optimal one, namely that which produces the maximum average silhouette width. A file can be written to give a table of partitions corresponding to various values of k, as specified by argument ks. Each line of the table gives (1) k, (2) clusters enclosed in braces with medoids enclosed in parentheses, (3) witnesses that are poorly classified (as indicated by a negative silhouette width).
 #'
 #' @param dm A distance matrix.

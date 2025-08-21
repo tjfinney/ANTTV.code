@@ -1,7 +1,6 @@
 #' Divide a data frame into n column-wise segments
 #'
-#' The last segment will contain remaining columns if n is not a divisor of the
-#' number of data frame columns.
+#' Split a data frame into a number of roughly equal chunks of columns. The last segment will contain remaining columns if n is not a divisor of the number of data frame columns.
 #'
 #' File paths are relative to the current working directory (gettable with
 #' getwd() and settable with setwd()). Segments are written as CSV files with

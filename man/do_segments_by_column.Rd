@@ -19,8 +19,7 @@ do_segments_by_column(fr, write = FALSE, n = 4, fn = "data/Mark.UBS4")
 Nothing. Output files are produced as a side effect.
 }
 \description{
-The last segment will contain remaining columns if n is not a divisor of the
-number of data frame columns.
+Split a data frame into a number of roughly equal chunks of columns. The last segment will contain remaining columns if n is not a divisor of the number of data frame columns.
 }
 \details{
 File paths are relative to the current working directory (gettable with

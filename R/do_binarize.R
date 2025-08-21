@@ -16,5 +16,12 @@ do_binarize <- function(fr) {
   eg <- Mark.UBS4[1:10,1]
   eg
   # Functions
+  # Calculate number of columns required to a represent a column of integer states.
+  fn_n_col <- function(c) {
+    max(!is.na(as.integer(c)))
+  }
+  # ...
+  x = fn_n_col(eg)
+  message(x)
 
 }
