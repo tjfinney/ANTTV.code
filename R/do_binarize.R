@@ -13,15 +13,18 @@ do_binarize <- function(fr) {
     "input must have at least one row" = dim(fr)[1] > 0
   )
   # Test data
-  eg <- Mark.UBS4[1:10,1]
-  eg
+  eg <- Mark.UBS4[,8]
   # Functions
-  # Calculate number of columns required to a represent a column of integer states.
+  # Calculate number of columns required to represent a column of integer states.
   fn_n_col <- function(c) {
-    max(!is.na(as.integer(c)))
+    floor(log(max(as.numeric(c), na.rm = TRUE), base = 2)) + 1
   }
-  # ...
-  x = fn_n_col(eg)
-  message(x)
+  # Make binary representation of integer i using vector of n digits.
+  fn_bin_int <- function(i, n) {
+    if(is.na(i)) rep(NA, n) else rev(as.numeric(intToBits(i)[1:n]))
+  }
+  # Make binary representation of column vector using multiple columns.
+  message(eg)
+  message(fn_n_col(eg))
 
 }
