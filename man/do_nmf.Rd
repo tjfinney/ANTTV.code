@@ -2,7 +2,7 @@
 % Please edit documentation in R/do_nmf.R
 \name{do_nmf}
 \alias{do_nmf}
-\title{Perform non-negative matrix factorization}
+\title{Perform non-negative matrix factorization (NMF)}
 \usage{
 do_nmf(
   fr,
@@ -27,5 +27,5 @@ do_nmf(
 A basis map.
 }
 \description{
-Do NMF.
+Do NMF to factorize an n x p matrix \emph{X} into two non-negative matrices: the n x r \emph{basis matrix W} and the r x p \emph{mixture coefficient matrix H} such that \emph{X ≈ WH}. The factorization rank r is typically much less than the minimum of n and p. The columns of \emph{W} are r factors of \emph{X}.
 }

@@ -2,16 +2,16 @@
 % Please edit documentation in R/do_binarize.R
 \name{do_binarize}
 \alias{do_binarize}
-\title{Convert multistate data frame to a binary data frame}
+\title{Convert multi-state data frame to its binary equivalent}
 \usage{
 do_binarize(fr)
 }
 \arguments{
-\item{fr}{A multistate data frame.}
+\item{fr}{A data frame of multi-state values.}
 }
 \value{
-A data frame of binary states.
+A data frame of binary values
 }
 \description{
-Convert multistate columns of a dataframe to binary columns. For example, if a column has seven states represented by seven codes (e.g. 1, 2, 3, 4, 5, 6, 7 or a, b, c, d, e, f, g) then this column will be converted to three columns with states represented by their binary equivalents distributed across the columns (e.g. 0 -> 0 0 0; 1 -> 0 0 1; 2 -> 0 1 0; 3 -> 0 1 1; 4 -> 1 0 0; 5 -> 1 0 1; 6 -> 1 1 1; 7 -> 1 1 1). Cells of the input dataframe that are not available (i.e. marked as NA) are converted to the appropriate number of NAs in the output dataframe.
+Create a data frame that represents multi-state data with binary equivalents. For example, if a column has seven states represented by seven codes (e.g. 1, 2, 3, 4, 5, 6, 7) then this column is converted to three columns with states represented by their binary equivalents distributed across the columns (e.g. 0 -> 0 0 0; 1 -> 0 0 1; 2 -> 0 1 0; 3 -> 0 1 1; 4 -> 1 0 0; 5 -> 1 0 1; 6 -> 1 1 0; 7 -> 1 1 1). Cells of the input data frame that are not available (i.e. NA) are converted to the appropriate number of NAs in the output data frame.
 }
