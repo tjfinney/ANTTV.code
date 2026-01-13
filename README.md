@@ -260,8 +260,8 @@ Mark.UBS4 |> (\(d) (d[(!row.names(d) %in% c("UBS", "Byz", "2427")),]))() |> do_r
 data frame to a corresponding number of output files as a side effect.
 (The function has no output so cannot be used in a function chain.) As
 an example, the following will produce four output files
-(“data/Mark.UBS4.a.csv”, “data/Mark.UBS4.b.csv”, “data/Mark.UBS4.b.csv”,
-“data/Mark.UBS4.b.csv”). The file path (`data/` in this example) is
+(“data/Mark.UBS4.a.csv”, “data/Mark.UBS4.b.csv”, “data/Mark.UBS4.c.csv”,
+“data/Mark.UBS4.d.csv”). The file path (`data/` in this example) is
 relative to the current working directory.
 
 ``` r
