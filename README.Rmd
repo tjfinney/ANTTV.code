@@ -272,16 +272,28 @@ If you hit errors like `/usr/bin/ld: cannot find -llapack: No such file or direc
 
 ## References
 
-Chatfield, Christopher and Alexander J. Collins. 1980. *Introduction to Multivariate Analysis.* London: Chapman and Hall.
+Aland, Barbara, Kurt Aland, Johannes Karavidopoulos, Carlo M. Martini, and Bruce Metzger, eds. 2014. *Greek New Testament*. 5th revised edition. Stuttgart: United Bible Societies.
 
-Felsenstein, Joseph. 2004. *Inferring Phylogenies.* Sunderland, MA: Sinauer.
+Chatfied, C., and A. J. Collins. 1980. *Introduction to Multivariate Analysis*. Softcover reprint of the original 1st ed. 1980 edition. Boca Raton: Springer.
 
-Maechler, Martin, Peter Rousseeuw, Anja Struyf, Mia Hubert, Kurt Hornik. 2023. *cluster: Cluster Analysis Basics and Extensions.* R package version 2.1.6.
-  
-Murdoch, Duncan and Daniel Adler. 2023. *rgl: 3D Visualization Using OpenGL.* R package version 1.2.8, <https://CRAN.R-project.org/package=rgl>.
+Felsenstein, Joseph. 2003. *Inferring Phylogenies*. 1st edition. Sunderland, Mass: Sinauer Associates is an imprint of Oxford University Press.
 
-Paradis, Emmanuel. 2012. *Analysis of Phylogenetics and Evolution with R.* 2nd ed. New York, NY: Springer.
+Gaujoux, Renaud, and Cathal Seoighe. 2010. “A Flexible R Package for Nonnegative Matrix Factorization.” *BMC Bioinformatics* 11 (1): 367. <https://doi.org/10.1186/1471-2105-11-367>.
 
-Paradis, Emmanuel and Klaus Schliep. 2019. *ape 5.0: an environment for modern phylogenetics and evolutionary analyses in R.* *Bioinformatics* 35, 526-528. doi:10.1093/bioinformatics/bty633 <https://doi.org/10.1093/bioinformatics/bty633>.
+Gower, J. C. 1966. “Some Distance Properties of Latent Root and Vector Methods Used in Multivariate Analysis.” *Biometrika* 53 (3/4): 325–38. <https://doi.org/10.2307/2333639>.
 
-R Core Team. 2023. *R: A Language and Environment for Statistical Computing.* Vienna: R Foundation for Statistical Computing. <https://www.R-project.org/>.
+Kaufman, Leonard, and Peter J. Rousseeuw. 1990a. “Divisive Analysis (Program DIANA).” In *Finding Groups in Data*, 253–79. John Wiley & Sons, Ltd. <https://doi.org/10.1002/9780470316801.ch6>.
+
+———. 1990b. “Partitioning Around Medoids (Program PAM).” In *Finding Groups in Data*, 68–125. John Wiley & Sons, Ltd. <https://doi.org/10.1002/9780470316801.ch2>.
+
+Maechler, Martin, Peter Rousseeuw, Anja Struyf, Mia Hubert, and Kurt Hornik. 2025. “Cluster: Cluster Analysis Basics and Extensions.” <https://CRAN.R-project.org/package=cluster>.
+
+Murdoch, Duncan, and Daniel Adler. 2025. “Rgl: 3D Visualization Using OpenGL.” <https://CRAN.R-project.org/package=rgl>.
+
+Paradis, Emmanuel. 2012. *Analysis of Phylogenetics and Evolution with R*. New York, NY: Springer. <https://doi.org/10.1007/978-1-4614-1743-9>.
+
+Paradis, Emmanuel, and Klaus Schliep. 2019. “Ape 5.0: An Environment for Modern Phylogenetics and Evolutionary Analyses in R.” *Bioinformatics* 35 (3): 526–28. <https://doi.org/10.1093/bioinformatics/bty633>.
+
+R Core Team. 2025. *R: A Language and Environment for Statistical Computing*. Vienna, Austria: R Foundation for Statistical Computing. <https://www.R-project.org/>.
+
+Saitou, N, and M Nei. 1987. “The Neighbor-Joining Method: A New Method for Reconstructing Phylogenetic Trees.” *Molecular Biology and Evolution* 4 (4): 406–25. <https://doi.org/10.1093/oxfordjournals.molbev.a040454>.
