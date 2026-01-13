@@ -274,9 +274,9 @@ If you hit errors like `/usr/bin/ld: cannot find -llapack: No such file or direc
 
 Aland, Barbara, Kurt Aland, Johannes Karavidopoulos, Carlo M. Martini, and Bruce Metzger, eds. 2014. *Greek New Testament*. 5th revised edition. Stuttgart: United Bible Societies.
 
-Chatfied, C., and A. J. Collins. 1980. *Introduction to Multivariate Analysis*. Softcover reprint of the original 1st ed. 1980 edition. Boca Raton: Springer.
+Chatfied, C., and A. J. Collins. 1980. *Introduction to Multivariate Analysis*. 1st ed. Boca Raton: Springer.
 
-Felsenstein, Joseph. 2003. *Inferring Phylogenies*. 1st edition. Sunderland, Mass: Sinauer Associates is an imprint of Oxford University Press.
+Felsenstein, Joseph. 2003. *Inferring Phylogenies*. 1st edition. Sunderland, Mass: Sinauer.
 
 Gaujoux, Renaud, and Cathal Seoighe. 2010. “A Flexible R Package for Nonnegative Matrix Factorization.” *BMC Bioinformatics* 11 (1): 367. <https://doi.org/10.1186/1471-2105-11-367>.
 

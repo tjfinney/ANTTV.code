@@ -324,12 +324,10 @@ and Bruce Metzger, eds. 2014. *Greek New Testament*. 5th revised
 edition. Stuttgart: United Bible Societies.
 
 Chatfied, C., and A. J. Collins. 1980. *Introduction to Multivariate
-Analysis*. Softcover reprint of the original 1st ed. 1980 edition. Boca
-Raton: Springer.
+Analysis*. 1st ed. Boca Raton: Springer.
 
 Felsenstein, Joseph. 2003. *Inferring Phylogenies*. 1st edition.
-Sunderland, Mass: Sinauer Associates is an imprint of Oxford University
-Press.
+Sunderland, Mass: Sinauer.
 
 Gaujoux, Renaud, and Cathal Seoighe. 2010. “A Flexible R Package for
 Nonnegative Matrix Factorization.” *BMC Bioinformatics* 11 (1): 367.
